@@ -13,4 +13,4 @@ const e={homeBtn:document.querySelector(".js-button__home"),libraryBtn:document.
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/fetchAPI"),require("./js/headerListeners");const e={cardContainer:document.querySelector(".collection"),homeBtn:document.querySelector(".js-button__home"),libraryBtn:document.querySelector(".js-button__library"),watchedBtn:document.querySelector(".js-library__watched"),queueBtn:document.querySelector(".js-library__queue")};
 },{"./sass/main.scss":"clu1","./js/fetchAPI":"FrZ5","./js/headerListeners":"dCXu"}]},{},["Focm"], null)
-//# sourceMappingURL=/best-movies/src.79cddf34.js.map
+//# sourceMappingURL=/best-movies/src.fc03b22b.js.map
