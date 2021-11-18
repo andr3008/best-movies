@@ -1,4 +1,4 @@
 window.addEventListener('load', function () {
     const loader = document.querySelector('.loader');
-    loader.classList.add('hide-loader')
+    loader.classList.add('hide-loader');
   });
