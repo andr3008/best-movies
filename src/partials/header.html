@@ -1,32 +1,35 @@
 <header class="header">
-  <section class="section">
+  <section class="section overlay">
     <div class="container">
       <nav class="navigation">
         <a class="navigation__logo" href="">
           <svg class="icon__logo">
             <use href="/images/symbol-defs.svg#icon-film"></use>
           </svg>
-          <h1 class="navigation__title">Filmoteka</h1>
+          <h1 class="navigation__title hide">Filmoteka</h1>
         </a>
-        <ul class="navigation__list">
-          <li class="navigation__item">
-            <a class="navigation__link" href="">HOME</a>
-          </li>
-          <li class="navigation__item">
-            <a class="navigation__link" href="">MY LIBRARY</a>
-          </li>
-        </ul>
+        <div class="navigation__list">
+          <button class="button navigation__button js-button__home">HOME</button>
+          <button class="button navigation__button js-button__library">MY LIBRARY</button>
+        </div>
       </nav>
       <form class="search">
         <label>
           <input type="text" class="search__input" placeholder="Поиск фильмов" />
         </label>
-        <button type="submit" class="search_btn">
+        <button type="button submit" class="search__btn">
           <svg class="search__svg">
             <use href="/images/symbol-defs.svg#icon-search"></use>
           </svg>
         </button>
+        <p class="search__error hide">
+          Search result not successful. Enter the correct movie name and
+        </p>
       </form>
+      <div class="lidrary hide">
+        <button type="button js-library__watched" class="button">Watched</button>
+        <button type="button js-library__queue" class="button">queue</button>
+      </div>
     </div>
   </section>
 </header>
