@@ -11,4 +11,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"../templates/cardTemplate.hbs":"Tawn"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/fetchAPI");var e=t(require("./templates/cardTemplate.hbs"));function t(e){return e&&e.__esModule?e:{default:e}}const r={cardContainer:document.querySelector(".collection"),homeBtn:document.querySelector(".js-button__home"),libraryBtn:document.querySelector(".js-button__library"),watchedBtn:document.querySelector(".js-library__watched"),queueBtn:document.querySelector(".js-library__queue")};console.log(r.queueBtn),fetch("https://api.themoviedb.org/3/trending/movie/week?api_key=9aaadf590dc90bb88adc9b4200a95438").then(e=>e.json()).then(t=>{console.log(t);const o=(0,e.default)(t.results);r.cardContainer.innerHTML=o}).catch(e=>{console.log(e)});
 },{"./sass/main.scss":"clu1","./js/fetchAPI":"FrZ5","./templates/cardTemplate.hbs":"Tawn"}]},{},["Focm"], null)
-//# sourceMappingURL=/best-movies/src.e16212ce.js.map
+//# sourceMappingURL=/best-movies/src.6bf48ff6.js.map
