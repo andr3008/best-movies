@@ -13,4 +13,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"../templates/cardTemplate.hbs":"Tawn"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/headerListeners"),require("./js/fetchAPI");
 },{"./sass/main.scss":"clu1","./js/headerListeners":"dCXu","./js/fetchAPI":"FrZ5"}]},{},["Focm"], null)
-//# sourceMappingURL=/best-movies/src.baf7eba8.js.map
+//# sourceMappingURL=/best-movies/src.11c9f5b5.js.map
