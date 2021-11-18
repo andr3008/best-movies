@@ -4,14 +4,16 @@ import cardTemp from '../templates/cardTemplate.hbs';
 const refs = {
   cardContainer: document.querySelector('.collection'),
 };
-fetch(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`)
-  .then(response => {
-    return response.json();
-  })
-  .then(item => {
-    const markup = cardTemp(item.results);
-    refs.cardContainer.innerHTML = markup;
-  })
-  .catch(error => {
-    console.log(error);
-  });
+
+function fetchTempMovies() {
+  return fetch(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`)
+    .then(response => response.json())
+    .then(item => {
+      const markup = cardTemp(item.results);
+      refs.cardContainer.innerHTML = markup;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+fetchTempMovies();
