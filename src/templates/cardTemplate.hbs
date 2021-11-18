@@ -1,6 +1,13 @@
 {{#each this}}
-  <li class='card' id='{{id}}'>
-    <div><img src='https://image.tmdb.org/t/p/w300{{poster_path}}' alt=' {{title}}' /></div>
-
+  <li class='card__film' data-action='{{id}}'>
+    <div>
+      <img src='https://image.tmdb.org/t/p/w300{{poster_path}}' alt='{{title}}' />
+      <h2 class='card__title'>{{title}} {{name}}</h2>
+      <p class='card__text'>
+        <span>{{#if genre_ids}}{{genre_ids}}{{/if}}</span>
+        |
+        <span>{{release_date}}</span>
+      </p>
+    </div>
   </li>
 {{/each}}
