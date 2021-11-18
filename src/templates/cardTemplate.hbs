@@ -1,10 +1,6 @@
 {{#each this}}
-  <li class='card' data-action='{{id}}'>
-    <div><img
-        src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-        alt='{{title}} {{name}}'
-        data-id='{{id}}'
-      /></div>
+  <li class='card' id='{{id}}'>
+    <div><img src='https://image.tmdb.org/t/p/w300{{poster_path}}' alt=' {{title}}' /></div>
 
   </li>
 {{/each}}
