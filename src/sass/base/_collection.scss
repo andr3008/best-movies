@@ -1,29 +1,47 @@
 .collection-list  {
-  display: flex;
-  flex-wrap: wrap;
-  padding-bottom: 40px;
-  padding-top: 20px;
-  width: 100%;
-  margin-bottom: -20px;
-  @media screen and (min-width: 768px) {
-  padding-bottom: 60px;
-  padding-top: 50px;  
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    width: 100%;
+    margin-bottom: -20px;
+    @media screen and (min-width: 768px) {
+    padding-bottom: 60px;
+    padding-top: 50px;  
+    margin: -15px;
+    }
+    
   }
-  
-}
-.card{
-    margin-bottom: 20px;
-    cursor: pointer;
-    transform: scale(1);
-    transition: transform 250ms linear;
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
-        margin-bottom: 30px;
-        margin-right: 30px;
-        flex-basis: calc((100% - 60px) / 2);
-    }
-    @media screen and (min-width: 1024px){
-        margin-bottom: 30px;
-        margin-right: 30px;
-        flex-basis: calc((100% - 90px) / 3);
-    }
-}
+  .card{
+      margin-bottom: 20px;
+      cursor: pointer;
+      transform: scale(1);
+      transition: transform 250ms linear;
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+          margin: 15px;
+          flex-basis: calc((100% - 60px) / 2);
+      }
+      @media screen and (min-width: 1024px){
+        margin: 15px;
+          flex-basis: calc((100% - 90px) / 3);
+      }
+  }
+  .card:hover,
+  .card:focus{
+    transform: scale(1.03);
+  }
+  .card__title,
+  .card__text{
+    font-family: $mainFont;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+
+  }
+  .card__title{
+    text-transform: uppercase;
+    color:$pagination-color;
+  }
+  .card__text{
+    color: $accent-color;
+  }
