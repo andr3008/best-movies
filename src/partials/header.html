@@ -13,11 +13,11 @@
           <button class="button navigation__button js-button__library">MY LIBRARY</button>
         </div>
       </nav>
-      <form class="search">
+      <form class="search js-search__form">
         <label>
           <input type="text" class="search__input" placeholder="Поиск фильмов" />
         </label>
-        <button type="button submit" class="search__btn">
+        <button type="button submit" class="search__btn js-search__button">
           <svg class="search__svg">
             <use href="/images/symbol-defs.svg#icon-search"></use>
           </svg>
@@ -26,9 +26,9 @@
           Search result not successful. Enter the correct movie name and
         </p>
       </form>
-      <div class="lidrary hide">
-        <button type="button js-library__watched" class="button">Watched</button>
-        <button type="button js-library__queue" class="button">queue</button>
+      <div class="lidrary js-library hide">
+        <button type="button" class="button js-library__watched">Watched</button>
+        <button type="button" class="button js-library__queue">queue</button>
       </div>
     </div>
   </section>
