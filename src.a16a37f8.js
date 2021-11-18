@@ -9,4 +9,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"handlebars/dist/handlebars.runtime":"pAws"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=t(require("./templates/cardTemplate.hbs"));function t(e){return e&&e.__esModule?e:{default:e}}const n={cardContainer:document.querySelector(".collection")};fetch("https://api.themoviedb.org/3/trending/movie/week?api_key=9aaadf590dc90bb88adc9b4200a95438").then(e=>e.json()).then(t=>{console.log(t);const a=(0,e.default)(t);n.cardContainer.innerHTML=a}).catch(e=>{console.log(e)});
 },{"./sass/main.scss":"clu1","./templates/cardTemplate.hbs":"Tawn"}]},{},["Focm"], null)
-//# sourceMappingURL=/best-movies/src.99e0eafb.js.map
+//# sourceMappingURL=/best-movies/src.a16a37f8.js.map
