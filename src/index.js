@@ -1,7 +1,7 @@
 import './sass/main.scss';
 
-
 import './js/fetchAPI';
+import './js/headerListeners';
 
 const refs = {
   cardContainer: document.querySelector('.collection'),
@@ -10,9 +10,3 @@ const refs = {
   watchedBtn: document.querySelector('.js-library__watched'),
   queueBtn: document.querySelector('.js-library__queue'),
 };
-
-import './js/headerListeners'
-import './js/fetchAPI';
-
-
-

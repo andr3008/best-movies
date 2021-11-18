@@ -2,7 +2,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '9aaadf590dc90bb88adc9b4200a95438';
 import cardTemp from '../templates/cardTemplate.hbs';
 const refs = {
-  cardContainer: document.querySelector('.collection'),
+  cardContainer: document.querySelector('.collection-list'),
 };
 
 function fetchTempMovies() {
