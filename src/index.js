@@ -1,4 +1,8 @@
 import './sass/main.scss';
+
+
+import './js/fetchAPI';
+
 // import ApiService from './js/fetchAPI';
 // const apiService = new ApiService();
 // import './js/fetchAPI';
@@ -23,3 +27,4 @@ fetch('https://api.themoviedb.org/3/trending/movie/week?api_key=9aaadf590dc90bb8
   .catch(err => {
     console.log(err);
   });
+
