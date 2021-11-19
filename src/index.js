@@ -2,7 +2,7 @@ import './sass/main.scss';
 
 import './js/fetchAPI';
 import './js/headerListeners';
-
+import './js/loader';
 const refs = {
   cardContainer: document.querySelector('.collection'),
   homeBtn: document.querySelector('.js-button__home'),
