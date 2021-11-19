@@ -46,6 +46,11 @@
   top: 10px;
   right: 10px;
   color: $pagination-color;
+
+  &:focus,
+  &:hover {
+    color: $accent-color;
+  }
 }
 
 .modal__close-icon {

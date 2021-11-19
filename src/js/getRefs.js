@@ -9,5 +9,8 @@ export default function getRefs() {
     searchBtn: document.querySelector('.js-search__button'),
     header: document.querySelector('.js-header'),
     logo: document.querySelector('.navigation__logo'),
+    modalOpenBtn: document.querySelector('.js-modal__dev-open-btn'),
+    modalCloseBtn: document.querySelector('.js-modal__dev-close-btn'),
+    modalBcdrop: document.querySelector('.js-backdrop'),
   };
 }
