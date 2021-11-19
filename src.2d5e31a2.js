@@ -26,4 +26,4 @@ window.addEventListener("load",function(){document.querySelector(".loader").clas
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/fetchCard"),require("./js/headerListeners"),require("./js/fetchAPI"),require("./js/navigation"),require("./js/loader"),require("./js/logoAnime");const e={cardContainer:document.querySelector(".collection"),homeBtn:document.querySelector(".js-button__home"),libraryBtn:document.querySelector(".js-button__library"),watchedBtn:document.querySelector(".js-library__watched"),queueBtn:document.querySelector(".js-library__queue")};
 },{"./sass/main.scss":"clu1","./js/fetchCard":"evx7","./js/headerListeners":"dCXu","./js/fetchAPI":"FrZ5","./js/navigation":"qr24","./js/loader":"vQE2","./js/logoAnime":"UOOW"}]},{},["Focm"], null)
-//# sourceMappingURL=/best-movies/src.80e7ef1e.js.map
+//# sourceMappingURL=/best-movies/src.2d5e31a2.js.map
