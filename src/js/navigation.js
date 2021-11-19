@@ -1,16 +1,17 @@
 import getRefs from './getRefs';
 const refs = getRefs();
 
+import playLogo from './logoAnime';
+
 refs.libraryBtn.addEventListener('click', onLibraryBtnOpen);
 refs.homeBtn.addEventListener('click', onHomeBtnOpen);
 refs.logo.addEventListener('click', onHomeBtnOpen);
-
-console.log(refs.libraryBtn);
 
 function onLibraryBtnOpen() {
   changeWorkplace(refs.searchForm, refs.libraryContainer);
   changeBtnActive(refs.libraryBtn, refs.homeBtn);
   changeOverlay('library-overlay', 'overlay');
+  playLogo();
   alert('нужна функция для отрисовки контейнера');
 }
 
@@ -18,6 +19,7 @@ function onHomeBtnOpen() {
   changeWorkplace(refs.libraryContainer, refs.searchForm);
   changeBtnActive(refs.homeBtn, refs.libraryBtn);
   changeOverlay('overlay', 'library-overlay');
+  playLogo();
   alert('нужна функция для отрисовки контейнера');
 }
 
