@@ -1,0 +1,91 @@
+.backdrop--is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.backdrop {
+  background-color: rgba(105, 98, 98, 0.35);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding-left: 71px;
+    padding-right: 71px;
+  }
+}
+
+.modal__container {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  //   height: 100%;
+  //   overflow-y: scroll;
+  max-height: 460px;
+  padding: 48px 20px 41px;
+  background-color: $title-color;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: $pagination-color;
+}
+
+.modal__close-icon {
+  stroke: currentColor;
+}
+
+.modal__dev-list {
+  text-align: center;
+}
+
+.modal__dev-item {
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 2px rgb(0 0 0 / 8%);
+  }
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.modal__dev-link {
+  color: $pagination-color;
+  font-size: 13px;
+  line-height: 1.33;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.modal__dev-title {
+  display: inline-block;
+}
+
+.modal__dev-icon {
+  fill: currentColor;
+}
+
+.modal__dev-text {
+  color: $accent-color;
+  font-size: 13px;
+  line-height: 1.33;
+}
