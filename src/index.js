@@ -4,6 +4,7 @@ import './js/fetchAPI';
 import './js/navigation';
 import './js/headerListeners';
 import './js/loader';
+import './js/logoAnime';
 const refs = {
   cardContainer: document.querySelector('.collection'),
   homeBtn: document.querySelector('.js-button__home'),
