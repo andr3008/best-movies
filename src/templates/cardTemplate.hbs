@@ -4,11 +4,11 @@
       <img src='https://image.tmdb.org/t/p/w300{{poster_path}}' alt='{{title}}' />
       <h2 class='card__title'>{{title}}</h2>
       <p class='card__text'>
-        {{#if genre_ids}}<span>{{genre_ids}}</span>{{/if}}
+        <span>{{#each genres}} {{name}} {{/each}}</span>
         |
         <span>{{release_date}}</span>
       </p>
-      <span class='card__vote_average'>{{vote_average}}</span>
+      {{!-- <span class='card__vote_average'>{{vote_average}}</span> --}}
     </div>
   </li>
 {{/each}}

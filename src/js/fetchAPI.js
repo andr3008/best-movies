@@ -1,38 +1,46 @@
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '9aaadf590dc90bb88adc9b4200a95438';
-import cardTemp from '../templates/cardTemplate.hbs';
 
-const refs = {
-  cardContainer: document.querySelector('.collection-list'),
-};
+export default class NewApiService {
+  constructor() {
+    this.searchQuery = '';
+    this.page = 1;
+  }
+  fetchTempMovies() {
+    return fetch(
+      `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US&page=${this.page}`,
+    )
+      .then(response => response.json())
+      .then(({ results }) => {
+        return results;
+      });
+  }
+  fetchSearchMovies() {
+    return fetch(
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`,
+    )
+      .then(response => response.json())
+      .then(({ results }) => {
+        return results;
+      });
+  }
 
-function fetchTempMovies() {
-  return fetch(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`)
-    .then(response => response.json())
-    .then(templateCard)
-    .catch(error => {
-      console.log(error);
+  fetchGenres() {
+    return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
+      .then(response => response.json())
+      .then(data => {
+        return data.genres;
+      });
+  }
+
+  insertGenresToMovieList() {
+    return this.fetchTempMovies().then(data => {
+      return this.fetchGenres().then(genresList => {
+        return data.map(movie => ({
+          ...movie,
+          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+        }));
+      });
     });
-}
-fetchTempMovies();
-
-function templateCard({ results }) {
-  const markup = cardTemp(results);
-  refs.cardContainer.innerHTML = markup;
-}
-function fetchSearchMovies() {
-  return fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}`)
-    .then(response => response.json())
-    .then(templateCard)
-    .catch(`Search result not successful. Enter the correct movie name`)
-    .finally(() => form.reset());
-}
-
-function fetchInfoCardMovies(id) {
-  return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
-    .then(response => response.json())
-    .then(templateCard)
-    .catch(error => {
-      console.log(error);
-    });
+  }
 }
