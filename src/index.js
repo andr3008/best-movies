@@ -1,6 +1,7 @@
 import './sass/main.scss';
 
 import './js/fetchAPI';
+import './js/navigation';
 import './js/headerListeners';
 import './js/loader';
 const refs = {

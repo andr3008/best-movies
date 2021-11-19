@@ -7,5 +7,7 @@ export default function getRefs() {
     queueBtn: document.querySelector('.js-library__queue'),
     searchForm: document.querySelector('.js-search__form'),
     searchBtn: document.querySelector('.js-search__button'),
+    header: document.querySelector('.js-header'),
+    logo: document.querySelector('.navigation__logo'),
   };
 }
