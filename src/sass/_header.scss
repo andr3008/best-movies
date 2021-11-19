@@ -29,6 +29,7 @@ button {
   &__logo {
     display: flex;
     align-items: baseline;
+    cursor: pointer;
   }
   &__title {
     display: none;
@@ -53,22 +54,9 @@ button {
   }
 }
 
-.icon__logo {
+.logo {
   width: 24px;
   height: 24px;
-  -webkit-transition: all 1.5s linear 0s;
-  -moz-transition: all 1.5s linear 0s;
-  -o-transition: all 1.5s linear 0s;
-  transition: all 1.5s linear 0s;
-
-  &:hover,
-  &:focus {
-    -webkit-transform: scale(1.4);
-    -moz-transform: scale(1.4);
-    -ms-transform: scale(1.4);
-    -o-transform: scale(1.4);
-    transform: scale(1.4);
-  }
 }
 
 //for js
