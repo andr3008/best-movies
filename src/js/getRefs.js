@@ -9,5 +9,7 @@ export default function getRefs() {
     searchBtn: document.querySelector('.js-search__button'),
     header: document.querySelector('.js-header'),
     logo: document.querySelector('.navigation__logo'),
+    theme:document.querySelector('.theme-switch__toggle'),
+    body:document.querySelector('body'),
   };
 }
