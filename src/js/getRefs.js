@@ -13,12 +13,13 @@ export default function getRefs() {
     modalCloseBtn: document.querySelector('.js-modal__dev-close-btn'),
     modalBcdrop: document.querySelector('.js-backdrop'),
 
-  paginationList: document.querySelector('.pagination-mid'),
-  pageList: document.querySelector('.pages'),
-  lastBtn: document.getElementById('last-page'),
-  prevBtn: document.getElementById('button-prev'),
-  nextBtn: document.getElementById('button-next'),
-  firstPage: document.querySelector('.first'),
-  lastPage: document.querySelector('.last'),
+    paginationList: document.querySelector('.pagination-mid'),
+    pageList: document.querySelector('.pages'),
+    lastBtn: document.getElementById('last-page'),
+    prevBtn: document.getElementById('button-prev'),
+    nextBtn: document.getElementById('button-next'),
+    firstPage: document.querySelector('.first'),
+    lastPage: document.querySelector('.last'),
+    scrollToTopBtn: document.querySelector('.scrollToTopBtn'),
   };
 }
