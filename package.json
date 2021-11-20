@@ -19,6 +19,9 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "devDependencies": {
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/font-awesome5": "^5.2.0",
+    "@pnotify/font-awesome5-fix": "^5.2.0",
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
@@ -26,6 +29,9 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "fi": "0.0.5",
+    "firebase": "^9.5.0",
+    "pnotify": "^5.2.0",
     "vivus": "^0.4.6"
   }
 }

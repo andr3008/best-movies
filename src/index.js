@@ -3,6 +3,8 @@ import './sass/main.scss';
 
 import './js/fetchCard';
 import './js/headerListeners';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 // const refs = {
 //   cardContainer: document.querySelector('.collection'),
@@ -18,6 +20,8 @@ import './js/headerListeners';
 import './js/loader';
 import './js/logoAnime';
 import './js/dev-modal';
+import './js/registration';
+import './js/init-firebase';
 const refs = {
   cardContainer: document.querySelector('.collection'),
   homeBtn: document.querySelector('.js-button__home'),

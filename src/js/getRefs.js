@@ -12,5 +12,15 @@ export default function getRefs() {
     modalOpenBtn: document.querySelector('.js-modal__dev-open-btn'),
     modalCloseBtn: document.querySelector('.js-modal__dev-close-btn'),
     modalBcdrop: document.querySelector('.js-backdrop'),
+    registerForm: document.querySelector('.modal__form-registration'),
+    loginForm: document.querySelector('.modal__form-login'),
+    signInModal: document.querySelector('.backdrop[data-modal-signin]'),
+    signUpBtn: document.querySelector('.user-box__signup'),
+    signInBtn: document.querySelector('.user-box__signin'),
+    logOutBtn: document.querySelector('.logout-js'),
+    signUpModal: document.querySelector('.backdrop[data-modal-signup]'),
+    signUpNowBtn: document.querySelector('.signup-now__button'),
+    signinSpinner: document.querySelector('.signin-spinner'),
+    signUpSpinner: document.querySelector('.signup-spinner'),
   };
 }
