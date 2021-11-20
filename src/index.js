@@ -17,6 +17,8 @@ import './js/navigation';
 import './js/headerListeners';
 import './js/loader';
 import './js/logoAnime';
+import './js/dev-modal';
+import './js/pagination';
 const refs = {
   cardContainer: document.querySelector('.collection'),
   homeBtn: document.querySelector('.js-button__home'),
