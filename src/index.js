@@ -1,5 +1,8 @@
 import './sass/main.scss';
 
+import './js/changeTheme.js';
+
+
 import './js/fetchCard';
 import './js/headerListeners';
 
