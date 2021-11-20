@@ -9,6 +9,10 @@ export default function getRefs() {
     searchBtn: document.querySelector('.js-search__button'),
     header: document.querySelector('.js-header'),
     logo: document.querySelector('.navigation__logo'),
+
+    theme:document.querySelector('.theme-switch__toggle'),
+    body:document.querySelector('body'),
+
     modalOpenBtn: document.querySelector('.js-modal__dev-open-btn'),
     modalCloseBtn: document.querySelector('.js-modal__dev-close-btn'),
     modalBcdrop: document.querySelector('.js-backdrop'),
@@ -20,5 +24,6 @@ export default function getRefs() {
   nextBtn: document.getElementById('button-next'),
   firstPage: document.querySelector('.first'),
   lastPage: document.querySelector('.last'),
+
   };
 }
