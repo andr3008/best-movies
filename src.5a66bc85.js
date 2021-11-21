@@ -47,4 +47,4 @@ var e,n=arguments[3];!function(t){"object"==typeof exports&&"undefined"!=typeof 
 },{"../templates/modalCardTemp.hbs":"c4O3","basiclightbox":"BNjD","basiclightbox/dist/basicLightbox.min.css":"jRvc"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/changeTheme.js"),require("./js/fetchCard"),require("./js/headerListeners"),require("./js/fetchAPI"),require("./js/navigation"),require("./js/loader"),require("./js/logoAnime"),require("./js/dev-modal"),require("./js/pagination"),require("./js/btnUp"),require("./js/openMovieCard");
 },{"./sass/main.scss":"clu1","./js/changeTheme.js":"JW5E","./js/fetchCard":"evx7","./js/headerListeners":"dCXu","./js/fetchAPI":"FrZ5","./js/navigation":"qr24","./js/loader":"vQE2","./js/logoAnime":"UOOW","./js/dev-modal":"Lv0L","./js/pagination":"o8lo","./js/btnUp":"zvDW","./js/openMovieCard":"AuYA"}]},{},["Focm"], null)
-//# sourceMappingURL=/best-movies/src.98682d12.js.map
+//# sourceMappingURL=/best-movies/src.5a66bc85.js.map
