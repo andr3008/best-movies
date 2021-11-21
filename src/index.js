@@ -2,7 +2,6 @@ import './sass/main.scss';
 
 import './js/changeTheme.js';
 
-
 import './js/fetchCard';
 import './js/headerListeners';
 import { initializeApp } from "firebase/app";
@@ -28,4 +27,8 @@ const refs = {
 
 import './js/pagination';
 import './js/btnUp';
+
+import './js/openMovieCard';
+
+
 

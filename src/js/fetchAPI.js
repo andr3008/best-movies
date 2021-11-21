@@ -38,6 +38,7 @@ export default class NewApiService {
       return this.fetchGenres().then(genresList => {
         return data.map(movie => ({
           ...movie,
+
           genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
         }));
       });
@@ -47,19 +48,16 @@ export default class NewApiService {
   fetch() {
     return fetch(
       `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US&page=${this.page}`,
-    )
-      .then(response => response.json());
+    ).then(response => response.json());
   }
 
   searchFetch() {
     return fetch(
       `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`,
-    )
-      .then(response => response.json())
+    ).then(response => response.json());
   }
 
   pagination(el) {
     this.page = el;
   }
-  
 }
