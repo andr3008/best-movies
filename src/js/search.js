@@ -10,16 +10,21 @@ refs.searchForm.addEventListener('submit', onSearch);
 
 function onSearch(e) {
   e.preventDefault();
+  clearArticlesContainer();
 
   API.query = e.currentTarget.elements.query.value;
-  API.fetchSearchMovies();
+  API.resetPage();
+  API.fetchSearchMovies().then(templateCard).catch(onFetchError);
 }
 
-function renderFilmCard(film) {
-  const markup = cardTemp(film);
-  refs.cardContainer.innerHTML = markup;
+function templateCard(markup) {
+  refs.cardContainer.innerHTML = cardTemp(markup);
 }
 
 function onFetchError(error) {
   alert('We have a problem');
+}
+
+function clearArticlesContainer() {
+  refs.cardContainer.innerHTML = '';
 }
