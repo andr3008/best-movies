@@ -21,8 +21,25 @@ export default class NewApiService {
     )
       .then(response => response.json())
       .then(({ results }) => {
+        this.incrementPage();
         return results;
       });
+  }
+
+  get query() {
+    return this.searchQuery;
+  }
+
+  set query(newQuery) {
+    this.searchQuery = newQuery;
+  }
+
+  incrementPage() {
+    this.page += 1;
+  }
+
+  resetPage() {
+    this.page = 1;
   }
 
   fetchGenres() {
