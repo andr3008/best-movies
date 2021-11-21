@@ -1,11 +1,16 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyDL1Hvn7iCTc47bvdTyNzGjEN8WzyoSJPs",
-    authDomain: "bestfilmoteka-by-students-goit.firebaseapp.com",
-    projectId: "bestfilmoteka-by-students-goit",
-    storageBucket: "bestfilmoteka-by-students-goit.appspot.com",
-    messagingSenderId: "741783979451",
-    appId: "1:741783979451:web:8de3e6ca90b6babea2b09e",
-    measurementId: "G-XL3N0CELWG"
-}
+//   import firebase from 'firebase/'
 
-const app = initializeApp(firebaseConfig);
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDP-8fHTx4doMcXDAuOcqy68cGBn51fiy0",
+//   authDomain: "best-movies-goit-p6.firebaseapp.com",
+//   databaseURL: "https://best-movies-goit-p6-default-rtdb.europe-west1.firebasedatabase.app",
+//   projectId: "best-movies-goit-p6",
+//   storageBucket: "best-movies-goit-p6.appspot.com",
+//   messagingSenderId: "148206011547",
+//   appId: "1:148206011547:web:173c99d779451cd74bb23e",
+//   measurementId: "G-ZB8ZN04KN0"
+// };
+
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
