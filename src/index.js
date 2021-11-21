@@ -17,4 +17,8 @@ import './js/pagination';
 import './js/btnUp';
 
 
+import './js/openMovieCard';
+
+
+
 
