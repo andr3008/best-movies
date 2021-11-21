@@ -4,11 +4,12 @@ import './js/changeTheme.js';
 
 import './js/fetchCard';
 import './js/headerListeners';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
 
 import './js/fetchAPI';
 import './js/navigation';
+import './js/search';
 import './js/headerListeners';
 import './js/loader';
 import './js/logoAnime';
@@ -24,11 +25,7 @@ const refs = {
   queueBtn: document.querySelector('.js-library__queue'),
 };
 
-
 import './js/pagination';
 import './js/btnUp';
 
 import './js/openMovieCard';
-
-
-
