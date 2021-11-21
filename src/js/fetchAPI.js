@@ -15,7 +15,7 @@ export default class NewApiService {
         return results;
       });
   }
-  fetchSearchMovies() {
+  fetchSearchMovies(searchQuery) {
     return fetch(
       `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`,
     )
@@ -23,6 +23,14 @@ export default class NewApiService {
       .then(({ results }) => {
         return results;
       });
+  }
+
+  get query() {
+    return this.searchQuery;
+  }
+
+  set query(newQuery) {
+    this.searchQuery = newQuery;
   }
 
   fetchGenres() {
