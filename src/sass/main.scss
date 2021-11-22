@@ -6,7 +6,7 @@
 @import './base/section';
 @import './header';
 @import './base/theme';
-@import './base/loader.scss';
+// @import './base/loader.scss';
 @import './layout/footer';
 @import './base/collection.scss';
 @import './layout/dev-modal.scss';
@@ -14,3 +14,4 @@
 @import './layout/pagination.scss';
 @import './layout/btnUp.scss';
 @import './layout/cardModal.scss';
+@import'./base/test-loader.scss';
