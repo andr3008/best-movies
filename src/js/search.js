@@ -6,6 +6,8 @@ const API = new NewApiService();
 
 import cardTemp from '../templates/cardTemplate.hbs';
 
+// import searchFetchMovie from './pagination'
+
 refs.searchForm.addEventListener('submit', onSearch);
 
 function onSearch(e) {

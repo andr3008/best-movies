@@ -1,38 +1,63 @@
 import fetchAPI from './fetchAPI';
 import getRefs from './getRefs';
-import fetchCard from './fetchCard';
+import render from './fetchCard';
+import cardTemp from '../templates/cardTemplate.hbs';
 
 const refs = getRefs();
 
+
 const apiService = new fetchAPI();
 
-const cardContainer = document.querySelector('.collection');
+const cardContainer = document.querySelector('.collection-list');
 
 let currentPage = 1;
 let totalPages;
 const pageRange = 2;
 
+refs.searchForm.addEventListener('submit', onSearch);
+
+function onSearch(e) {
+  e.preventDefault();
+  clearArticlesContainer();
+
+  API.query = e.currentTarget.elements.query.value;
+  API.resetPage();
+  API.fetchSearchMovies().then(templateCard).catch(onFetchError);
+  searchFetchMovie()
+}
+
+function clearArticlesContainer() {
+  refs.cardContainer.innerHTML = '';
+}
+
+
+function templateCard(markup) {
+  cardContainer.innerHTML = cardTemp(markup);
+}
+
 // обработка ответа API по поиску и отрисовка страницы
 
-// console.log(searchFetch());
-// function searchFetch() {
+// export default function searchFetchMovie() {
 //   apiService
 //     .searchFetch()
 //     .then(data => {
 //       totalPages = data.total_pages;
 //       refs.lastBtn.textContent = totalPages;
-//       // console.log(data)
 //       init();
 //       return data.results;
-//     })
-//     .then(results => {
-//       fetchCard(results);
-      
-//     })
+//     })    
+//     .then(data => {
+//       return apiService.fetchGenres().then(genresList => {
+//         return data.map(movie => ({
+//           ...movie,
 
-//     .catch(error => console.log(error));
+//           genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+//         }));
+//       });
+//     }).then(templateCard);
+//   refs.pageList.innerHTML = '';
+
 // }
-
 
 //  обработка ответа API по умолчанию(популярные фильмы) и отрисовка страницы
 function fetchGall() {
@@ -41,80 +66,80 @@ function fetchGall() {
         .then(data => {
             totalPages = data.total_pages;
             refs.lastBtn.textContent = totalPages;
-            // console.log(data)
             init();
             return data.results;
         })
-        .then(results => {
+        .then(data => {
+      return apiService.fetchGenres().then(genresList => {
+        return data.map(movie => ({
+          ...movie,
 
-            fetchCard(results);
-        })
-        .catch(error => console.log(error));
+          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+        }));
+      });
+    }).then(templateCard);
+        // .catch(error => console.log(error));
 };
-
 
 refs.paginationList.addEventListener('click', onBtnClick);
  refs.prevBtn.addEventListener('click', onPrevBtnClick);
  refs.nextBtn.addEventListener('click', onNextBtnClick);
 
   //  изменение нумерации при клике на кнопки с цифрами
-  function onBtnClick(evt) {
-    evt.preventDefault();
+function onBtnClick(evt) {
+  evt.preventDefault();
 
-    if (evt.target.nodeName !== 'BUTTON') {
-      return;
-    }
+  if (evt.target.nodeName !== 'BUTTON') {
+    return;
+  }
 
-    // cardContainer.innerHTML = '';
-    refs.pageList.innerHTML = '';
+  cardContainer.innerHTML = '';
+  refs.pageList.innerHTML = '';
 
-    currentPage = Number(evt.target.textContent);
-    apiService.pagination(currentPage);
+  currentPage = Number(evt.target.textContent);
+  apiService.pagination(currentPage);
     
- if (apiService.query) {
-    searchFetch();
+  if (apiService.query) {
+    searchFetchMovie();
   } else {
     fetchGall();
   }
 }
-
 //  изменение нумерации на 1 при клике на кнопку Prev
-  function onPrevBtnClick(evt) {
-    evt.preventDefault();
+function onPrevBtnClick(evt) {
+  evt.preventDefault();
 
-    if (currentPage > 1) {
-      currentPage -= 1;
-    }
+  if (currentPage > 1) {
+    currentPage -= 1;
+  }
 
- 
-    refs.pageList.innerHTML = '';
-    apiService.pagination(currentPage);
+  cardContainer.innerHTML = '';
+  refs.pageList.innerHTML = '';
+  apiService.pagination(currentPage);
 
-    if (apiService.query) {
-    searchFetch();
+  if (apiService.query) {
+    searchFetchMovie();
   } else {
     fetchGall();
   }
-
 }
 
 function onNextBtnClick(evt) {
-    evt.preventDefault();
+  evt.preventDefault();
 
-    if (currentPage !== totalPages) {
-      currentPage += 1;
-    }
+  if (currentPage !== totalPages) {
+    currentPage += 1;
+  }
   
-     cardContainer.innerHTML = '';
-    refs.pageList.innerHTML = '';
-    apiService.pagination(currentPage);
+  cardContainer.innerHTML = '';
+  refs.pageList.innerHTML = '';
+  apiService.pagination(currentPage);
     
-if (apiService.query) {
-    searchFetch();
+  if (apiService.query) {
+    searchFetchMovie();
   } else {
     fetchGall();
   }
-
 }
 
 
@@ -161,4 +186,3 @@ if (apiService.query) {
     renderPagesList();
     makeActiveBtn();
   }
-
