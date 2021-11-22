@@ -61,7 +61,13 @@ export default class NewApiService {
       });
     });
   }
-
+  fetchOneMovieInfo(movie_id) {
+    return fetch(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en-US`)
+      .then(response => response.json())
+      .then(data => {
+        return data;
+      });
+  }
   fetch() {
     return fetch(
       `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US&page=${this.page}`,
