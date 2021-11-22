@@ -9,9 +9,13 @@ export default function getRefs() {
     searchBtn: document.querySelector('.js-search__button'),
     header: document.querySelector('.js-header'),
     logo: document.querySelector('.navigation__logo'),
+    cardContainer: document.querySelector('.collection-list'),
+    error: document.querySelector('.search__error'),
+    searchIcon: document.querySelector('.search__svg'),
+    input: document.querySelector('.search__input'),
 
-    theme:document.querySelector('.theme-switch__toggle'),
-    body:document.querySelector('body'),
+    theme: document.querySelector('.theme-switch__toggle'),
+    body: document.querySelector('body'),
 
     modalOpenBtn: document.querySelector('.js-modal__dev-open-btn'),
     modalCloseBtn: document.querySelector('.js-modal__dev-close-btn'),
@@ -28,7 +32,6 @@ export default function getRefs() {
     signinSpinner: document.querySelector('.signin-spinner'),
     signUpSpinner: document.querySelector('.signup-spinner'),
 
-
     paginationList: document.querySelector('.pagination-mid'),
     pageList: document.querySelector('.pages'),
     lastBtn: document.getElementById('last-page'),
@@ -38,13 +41,12 @@ export default function getRefs() {
     lastPage: document.querySelector('.last'),
     scrollToTopBtn: document.querySelector('.scrollToTopBtn'),
 
-  paginationList: document.querySelector('.pagination-mid'),
-  pageList: document.querySelector('.pages'),
-  lastBtn: document.getElementById('last-page'),
-  prevBtn: document.getElementById('button-prev'),
-  nextBtn: document.getElementById('button-next'),
-  firstPage: document.querySelector('.first'),
-  lastPage: document.querySelector('.last'),
-
+    paginationList: document.querySelector('.pagination-mid'),
+    pageList: document.querySelector('.pages'),
+    lastBtn: document.getElementById('last-page'),
+    prevBtn: document.getElementById('button-prev'),
+    nextBtn: document.getElementById('button-next'),
+    firstPage: document.querySelector('.first'),
+    lastPage: document.querySelector('.last'),
   };
 }

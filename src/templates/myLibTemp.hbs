@@ -1,7 +1,11 @@
 {{#each this}}
-  <li class='library-card' data-action='{{id}}'>
+  <li class='library-card'>
     <div>
-      <img src='https://image.tmdb.org/t/p/w300{{poster_path}}' alt='{{title}}' />
+      <img
+        src='https://image.tmdb.org/t/p/w300{{poster_path}}'
+        alt='{{title}}'
+        data-action='{{id}}'
+      />
       <h2 class='library-card__title'>{{title}}</h2>
       <p class='library-card__text'>
         <span>{{#each genres}} {{name}} {{/each}}</span>
