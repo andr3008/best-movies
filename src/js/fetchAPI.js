@@ -50,7 +50,6 @@ export default class NewApiService {
       });
   }
 
-  //ету функцию лутше забрать с АРI, переместить в файл, который делает рендер
   insertGenresToMovieList() {
     return this.fetchTempMovies().then(data => {
       return this.fetchGenres().then(genresList => {

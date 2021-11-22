@@ -10,6 +10,9 @@ export default function getRefs() {
     header: document.querySelector('.js-header'),
     logo: document.querySelector('.navigation__logo'),
     cardContainer: document.querySelector('.collection-list'),
+    error: document.querySelector('.search__error'),
+    searchIcon: document.querySelector('.search__svg'),
+    input: document.querySelector('.search__input'),
 
     theme: document.querySelector('.theme-switch__toggle'),
     body: document.querySelector('body'),

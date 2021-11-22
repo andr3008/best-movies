@@ -11,25 +11,26 @@ refs.searchForm.addEventListener('submit', onSearch);
 function onSearch(e) {
   e.preventDefault();
   clearArticlesContainer();
-
   API.query = e.currentTarget.elements.query.value;
   API.resetPage();
-  complitFilmCard().then(templateCard).catch(onFetchError);
+  complitFilmCard().then(templateCard).catch(onError).finally(resetForm);
 }
 
 function templateCard(markup) {
-  API.insertGenresToMovieList();
   refs.cardContainer.innerHTML = cardTemp(markup);
 }
 
-function onFetchError(error) {
-  alert('We have a problem');
+function onError() {
+  refs.searchIcon.classList.add('hide');
+  refs.error.classList.remove('hide');
+  refs.input.placeholder = '';
 }
 
 function clearArticlesContainer() {
   refs.cardContainer.innerHTML = '';
 }
 
+//запрос вместе з жанрами
 function complitFilmCard() {
   return API.fetchSearchMovies().then(data => {
     return API.fetchGenres().then(genresList => {
@@ -40,4 +41,9 @@ function complitFilmCard() {
       }));
     });
   });
+}
+
+//чистим инпут после отработки запроса
+function resetForm() {
+  refs.input.value = '';
 }
