@@ -13,19 +13,17 @@ function fetchOneMovieInfo(movie_id) {
   return fetch(url)
     .then(response => response.json())
     .then(data => {
-      return data.results;
+      return data;
     });
 }
 
 function openModal(e) {
   e.preventDefault();
-
-  fetchOneMovieInfo(e.target.dataset.id).then(data => {
+  console.log(e.target);
+  fetchOneMovieInfo(e.target.dataset.action).then(data => {
     if (e.target.nodeName !== 'IMG') return;
-
     const markup = modalFilmCard(data);
     const modal = basicLightbox.create(markup);
-
     modal.show();
   });
 }

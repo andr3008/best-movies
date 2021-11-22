@@ -4,8 +4,8 @@ import './js/changeTheme.js';
 import './js/fetchCard';
 import './js/headerListeners';
 
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
+// import { initializeApp } from 'firebase/app';
+// import { getAnalytics } from 'firebase/analytics';
 
 import './js/fetchAPI';
 import './js/navigation';

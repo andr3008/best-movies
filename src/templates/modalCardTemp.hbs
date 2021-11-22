@@ -1,4 +1,4 @@
- {{!-- ------------было закомментировано----------------------}}
+{{! ------------было закомментировано--------}}
 {{!-- <div class="modal-card" data-action="{{id}}">
     <div>
         <img class="image" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" />
@@ -25,9 +25,9 @@
                 {{/each}}</p>
             <p class="cardItem__about">About</p><p class="cardItem__description"> {{overview}}</p>
         </div> --}}
-        {{!-- ------------было закомментировано----------------------}}
+{{! ------------было закомментировано--------}}
 
-{{!-- ///////////////было активно/////////////////// --}}
+{{! ///////////////было активно/////////////////// }}
 {{!-- <div class='modal-card' data-action='{{id}}'>
   <div class='cardItem__image'>
     <img class='image' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}' />
@@ -67,10 +67,10 @@
       <button class='cardItem__button'>
         Add to queue
       </button> --}}
-{{!-- ///////////////было активно/////////////////// --}}
+{{! ///////////////было активно/////////////////// }}
 
-      {{!-- ------------было закомментировано----------------------}}
-      {{! <ul class='storage'>
+{{! ------------было закомментировано--------}}
+{{! <ul class='storage'>
         <li class='storage__item'>
           <label class='storage__label'>
             <input type='checkbox' value='Watched' class='storage__input visuallyhidden' />
@@ -84,63 +84,65 @@
           </label>
         </li>
       </ul> }}
-      {{!-- ------------было закомментировано----------------------}}
-{{!-- ///////////////было активно/////////////////// --}}
-    {{!-- </div>
+{{! ------------было закомментировано--------}}
+{{! ///////////////было активно/////////////////// }}
+{{! </div>
   </div>
   <div class='modal-close-btn'>Close</div>
-</div> --}}
-{{!-- ///////////////было активно/////////////////// --}}
+</div> }}
+{{! ///////////////было активно/////////////////// }}
 
-{{!--------------new----------------------}}
+{{!new--------}}
 
-  <div class="modal-card modal__content" data-action='{{id}}'>
-    <button class="modal__close-btn js-modal__dev-close-btn">
-      <svg class="modal__close-icon" width="30" height="30">
-        <use href="./images/symbol-defs.svg#close-icon"></use>
-      </svg>
-    </button>
+<div class='modal-card modal__content'>
+  <button class='modal__close-btn js-modal__dev-close-btn'>
+    <svg class='modal__close-icon' width='30' height='30'>
+      <use href='./images/symbol-defs.svg#close-icon'></use>
+    </svg>
+  </button>
 
-    {{!-- <div class='cardItem__image'>
-      <img class='image' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}' />
-    </div> --}}
-
-    <div class="cardItem__image">
-      <img class="image" src="../images/pic-1-test.jpg" alt="test" />
-    </div>
-
-    <div class="cardItem__wrapper">
-      <h2 class="cardItem__name">Title{{title}}</h2>
-
-      <div class="cadrItem__item">
-        <ul class="cadrItem__list cardItem_text">
-          <li class="cadrItem__vote ">Vote / Votes</li>
-          <li class="cardItem__popularity">Popularity</li>
-          <li class="cardItem-title">Original Title</li>
-          <li class="cardItem__genre">Genre</li>
-        </ul>
-        
-        <ul class="cadrItem__list cardItem__descr">
-          <li class="cadrItem__vote">
-            <span class="cardItem__vote_average">7.3{{vote_average}}</span>/
-            <span class="cardItem__vote_count">1230{{vote_count}}</span>
-          </li>
-          <li class="cardItem__popularity cardItem___data">Popularity{{popularity}}</li>
-          <li class="cardItem__orig-title cardItem__title_data">Original Title{{original_title}}</li>
-          <li class="cardItem__genre cardItem__genreList">Genre, Genre, Genre, Genre, Genre, Genre, Genre, Genre{{#each genres}}
-            <span class='cardItem__genre_data'>{{this.name}}</span>
-            {{/each}}
-          </li>
-        </ul>
-      </div>
-
-      <h3 class="cardItem__about">About</h3>
-      <p class="cardItem__description">AboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAboutAbout{{overview}}</p>
-      
-      <div class="cardItem__listButton">
-        <button class="cardItem__button">Add to watched</button>
-        <button class="cardItem__button btn__addQueue">Add to queue</button>
-      </div>
-    </div>
-
+  <div class='cardItem__image'>
+    <img
+      class='image'
+      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+      alt='{{title}}'
+      data-action='{{id}}'
+    />
   </div>
+
+  <div class='cardItem__wrapper'>
+    <h2 class='cardItem__name'>Title{{title}}</h2>
+
+    <div class='cadrItem__item'>
+      <ul class='cadrItem__list cardItem_text'>
+        <li class='cadrItem__vote'>Vote / Votes</li>
+        <li class='cardItem__popularity'>Popularity</li>
+        <li class='cardItem-title'>Original Title</li>
+        <li class='cardItem__genre'>Genre</li>
+      </ul>
+
+      <ul class='cadrItem__list cardItem__descr'>
+        <li class='cadrItem__vote'>
+          <span class='cardItem__vote_average'>{{vote_average}}</span>/
+          <span class='cardItem__vote_count'>{{vote_count}}</span>
+        </li>
+        <li class='cardItem__popularity cardItem___data'>Popularity{{popularity}}</li>
+        <li class='cardItem__orig-title cardItem__title_data'>Original Title{{original_title}}</li>
+        <li class='cardItem__genre cardItem__genreList'>
+          {{#each genres}}
+            <span class='cardItem__genre_data'>{{this.name}}</span>
+          {{/each}}
+        </li>
+      </ul>
+    </div>
+
+    <h3 class='cardItem__about'>About</h3>
+    <p class='cardItem__description'>{{overview}}</p>
+
+    <div class='cardItem__listButton'>
+      <button class='cardItem__button'>Add to watched</button>
+      <button class='cardItem__button btn__addQueue'>Add to queue</button>
+    </div>
+  </div>
+
+</div>
