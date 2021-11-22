@@ -14,10 +14,11 @@ function onSearch(e) {
 
   API.query = e.currentTarget.elements.query.value;
   API.resetPage();
-  API.fetchSearchMovies().then(templateCard).catch(onFetchError);
+  complitFilmCard().then(templateCard).catch(onFetchError);
 }
 
 function templateCard(markup) {
+  API.insertGenresToMovieList();
   refs.cardContainer.innerHTML = cardTemp(markup);
 }
 
@@ -27,4 +28,16 @@ function onFetchError(error) {
 
 function clearArticlesContainer() {
   refs.cardContainer.innerHTML = '';
+}
+
+function complitFilmCard() {
+  return API.fetchSearchMovies().then(data => {
+    return API.fetchGenres().then(genresList => {
+      return data.map(movie => ({
+        ...movie,
+
+        genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+      }));
+    });
+  });
 }

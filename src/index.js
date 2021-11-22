@@ -7,9 +7,6 @@ import './js/headerListeners';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 
-
-
-
 import './js/fetchAPI';
 import './js/navigation';
 import './js/search';
@@ -19,19 +16,10 @@ import './js/loader';
 import './js/logoAnime';
 import './js/dev-modal';
 
-
 import './js/registration';
 import './js/init-firebase';
 
 import './js/pagination';
 import './js/btnUp';
 
-
 import './js/openMovieCard';
-
-
-
-
-
-
-
