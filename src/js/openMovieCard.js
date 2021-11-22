@@ -29,3 +29,18 @@ function openModal(e) {
     modal.show();
   });
 }
+
+// function openModal(e) {
+//   e.preventDefault();
+//   const li = document.querySelector('.card')
+//   if (li.dataset.action) {
+//     fetchOneMovieInfo(+e.target.dataset.action).then(onOpenCard);
+//     console.log(li.dataset.action)
+//   }
+// }
+
+// function onOpenCard(oneMarkup) {
+//   const markup = modalFilmCard(oneMarkup);
+//     const modal = basicLightbox.create(markup);
+//     modal.show();
+// }
