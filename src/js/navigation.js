@@ -19,8 +19,8 @@ function onLibraryBtnOpen() {
   // alert('нужна отрисовка контейнера');
   refs.error.classList.add('hide');
 
-  resetError();
-  alert('нужна отрисовка контейнера');
+  // resetError();
+  // alert('нужна отрисовка контейнера');
 
 }
 
