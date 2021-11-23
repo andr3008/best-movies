@@ -4,6 +4,7 @@ const refs = getRefs();
 import playLogo from './logoAnime';
 
 import { render } from './fetchCard';
+import { resetError } from './search';
 
 refs.libraryBtn.addEventListener('click', onLibraryBtnOpen);
 refs.homeBtn.addEventListener('click', onHomeBtnOpen);
@@ -14,8 +15,8 @@ function onLibraryBtnOpen() {
   changeBtnActive(refs.libraryBtn, refs.homeBtn);
   changeOverlay('library-overlay', 'overlay');
   playLogo();
+  resetError();
   alert('нужна отрисовка контейнера');
-  refs.error.classList.add('hide');
 }
 
 function onHomeBtnOpen() {
@@ -23,6 +24,7 @@ function onHomeBtnOpen() {
   changeBtnActive(refs.homeBtn, refs.libraryBtn);
   changeOverlay('overlay', 'library-overlay');
   playLogo();
+  resetError();
   render();
 }
 
