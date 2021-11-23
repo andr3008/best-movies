@@ -1,13 +1,9 @@
-@import './base/base';
-@import './base/variables';
-@import './base/common';
+@import './base/base.scss';
+@import './base/variables.scss';
+@import './base/common.scss';
 
-@import './layout/container';
-@import './layout/section';
-@import './layout/header';
-@import './components/theme';
 // @import './base/loader.scss';
-@import './layout/footer';
+@import './components/theme.scss';
 @import './components/collection.scss';
 @import './components/dev-modal.scss';
 @import './components/registration.scss';
@@ -15,3 +11,8 @@
 @import './components/btnUp.scss';
 @import './components/cardModal.scss';
 @import './components/test-loader.scss';
+
+@import './layout/container.scss';
+@import './layout/section.scss';
+@import './layout/header.scss';
+@import './layout/footer.scss';
