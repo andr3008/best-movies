@@ -1,4 +1,3 @@
-
 // import getRefs from './getRefs';
 // const refs = getRefs();
 
@@ -75,15 +74,20 @@ function onSearch(e) {
   resetError();
   if (API.query.length !== 0) {
     API.insertGenresToSearch().then(renderFilmOnSeasch).catch(onError).finally(resetForm);
-  } else onError();
-  render();
+  } else {
+    onError();
+    render();
+  }
 }
 
 function renderFilmOnSeasch(films) {
   let filmList = films.length;
   if (filmList >= 1) {
     refs.cardContainer.innerHTML = cardTemp(films);
-  } else onError();
+  } else {
+    onError();
+    render();
+  }
 }
 
 function onError() {
@@ -101,4 +105,3 @@ export function resetError() {
 function resetForm() {
   refs.input.value = '';
 }
-
