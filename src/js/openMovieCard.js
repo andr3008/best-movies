@@ -34,3 +34,13 @@ function openModal(e) {
 //     const modal = basicLightbox.create(markup);
 //     modal.show();
 // }
+
+function modalHide() {
+    refs.modalBcdrop.classList.add('backdrop--is-hidden');
+    document.body.style.overflow = 'visible';
+}
+
+function modalShow() {
+    refs.modalBcdrop.classList.remove('backdrop--is-hidden');
+    document.body.style.overflow = 'hidden';
+}
