@@ -1,7 +1,8 @@
 @import './base/base';
 @import './base/variables';
 @import './base/common';
-
+@import './base/container';
+@import './base/section';
 // @import './base/loader.scss';
 @import './components/theme';
 @import './components/collection';
@@ -12,7 +13,5 @@
 @import './components/cardModal';
 @import './components/test-loader';
 
-@import './layout/container';
-@import './layout/section';
 @import './layout/header';
 @import './layout/footer';
