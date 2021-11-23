@@ -5,6 +5,7 @@ export default class NewApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    
   }
   fetchTempMovies() {
     return fetch(
@@ -23,7 +24,7 @@ export default class NewApiService {
       .then(({ results }) => {
         this.incrementPage();
         return results;
-      });
+        });
   }
 
   get query() {
@@ -61,6 +62,19 @@ export default class NewApiService {
       });
     });
   }
+
+  insertGenresToSearch() {
+    return this.fetchSearchMovies().then(data => {
+      return this.fetchGenres().then(genresList => {
+        return data.map(movie => ({
+          ...movie,
+
+          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+        }));
+      });
+    });
+  }
+
   fetchOneMovieInfo(movie_id) {
     return fetch(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en-US`)
       .then(response => response.json())
@@ -83,4 +97,6 @@ export default class NewApiService {
   pagination(el) {
     this.page = el;
   }
+
 }
+
