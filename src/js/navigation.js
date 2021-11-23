@@ -14,7 +14,7 @@ function onLibraryBtnOpen() {
   changeBtnActive(refs.libraryBtn, refs.homeBtn);
   changeOverlay('library-overlay', 'overlay');
   playLogo();
-  alert('нужна отрисовка контейнера');
+  // alert('нужна отрисовка контейнера');
   refs.error.classList.add('hide');
 }
 

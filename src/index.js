@@ -15,7 +15,6 @@ import './js/loader';
 import './js/registration';
 import './js/logoAnime';
 import './js/dev-modal';
-
 import './js/pagination';
 import './js/btnUp';
 
@@ -28,4 +27,5 @@ import './js/btnUp';
 
 
 import './js/openMovieCard';
-import './js/headerListeners';
+import './js/addToLocalStorage';
+import './js/renderLibrary';

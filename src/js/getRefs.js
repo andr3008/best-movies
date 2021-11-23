@@ -20,8 +20,6 @@ export default function getRefs() {
     modalOpenBtn: document.querySelector('.js-modal__dev-open-btn'),
     modalCloseBtn: document.querySelector('.js-modal__dev-close-btn'),
     modalBcdrop: document.querySelector('.js-backdrop'),
-    
-    modalAddQueue: document.querySelector('.js-addQueue'),
 
     registerForm: document.querySelector('.modal__form-registration'),
     loginForm: document.querySelector('.modal__form-login'),
