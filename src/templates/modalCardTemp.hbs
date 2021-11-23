@@ -103,8 +103,13 @@
 
   <div class='cardItem__image'>
     <img
+
       class='image'
       src='https://image.tmdb.org/t/p/w500{{poster_path}}'onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';"
+
+      class='image js-image'
+      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+
       alt='{{title}}'
       data-action='{{id}}'
     />
@@ -140,8 +145,8 @@
     <p class='cardItem__description'>{{overview}}</p>
 
     <div class='cardItem__listButton'>
-      <button class='cardItem__button'>Add to watched</button>
-      <button class='cardItem__button btn__addQueue'>Add to queue</button>
+      <button class='cardItem__button js-addWatched'>Add to watched</button>
+      <button class='cardItem__button js-addQueue'>Add to queue</button>
     </div>
   </div>
 

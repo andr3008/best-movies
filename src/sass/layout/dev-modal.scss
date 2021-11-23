@@ -16,16 +16,9 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding: 20px;
 
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    padding-left: 75px;
-    padding-right: 75px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    padding-left: 71px;
-    padding-right: 71px;
+  @media screen and (max-width: 767px) {
+    padding: 20px;
   }
 }
 
@@ -41,11 +34,12 @@
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     padding: 42px 30px 40px 28px;
-    width: 100%;
+    max-width: 618px;
   }
 
   @media screen and (min-width: 1024px) {
     padding: 50px 30px 40px;
+    max-width: 882px;
   }
 }
 
