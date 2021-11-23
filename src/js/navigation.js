@@ -3,8 +3,8 @@ const refs = getRefs();
 
 import playLogo from './logoAnime';
 
-import { render } from './fetchCard';
-import { resetError } from './search';
+import { resetError } from './home';
+import { fetchGall } from './home';
 
 refs.libraryBtn.addEventListener('click', onLibraryBtnOpen);
 refs.homeBtn.addEventListener('click', onHomeBtnOpen);
@@ -21,7 +21,6 @@ function onLibraryBtnOpen() {
 
   // resetError();
   // alert('нужна отрисовка контейнера');
-
 }
 
 function onHomeBtnOpen() {
@@ -30,7 +29,7 @@ function onHomeBtnOpen() {
   changeOverlay('overlay', 'library-overlay');
   playLogo();
   resetError();
-  render();
+  fetchGall();
 }
 
 //меняем оверлей
