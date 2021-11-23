@@ -16,6 +16,10 @@ export function render() {
     });
    
 }
+
+render();
+
+
 // render();
 function templateCard(markup) {
   cardContainer.innerHTML = cardTemp(markup);
