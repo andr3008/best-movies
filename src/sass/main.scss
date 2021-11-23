@@ -1,12 +1,13 @@
 @import './base/base';
 @import './base/variables';
 @import './base/common';
-@import './base/container';
-@import './base/section';
-@import './components/header';
+
+@import './layout/container';
+@import './layout/section';
+@import './layout/header';
 @import './components/theme';
 // @import './base/loader.scss';
-@import './components/footer';
+@import './layout/footer';
 @import './components/collection.scss';
 @import './components/dev-modal.scss';
 @import './components/registration.scss';
