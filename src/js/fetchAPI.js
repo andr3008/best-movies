@@ -61,6 +61,19 @@ export default class NewApiService {
       });
     });
   }
+
+  insertGenresToSearch() {
+    return this.fetchSearchMovies().then(data => {
+      return this.fetchGenres().then(genresList => {
+        return data.map(movie => ({
+          ...movie,
+
+          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+        }));
+      });
+    });
+  }
+
   fetchOneMovieInfo(movie_id) {
     return fetch(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en-US`)
       .then(response => response.json())

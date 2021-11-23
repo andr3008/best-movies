@@ -15,7 +15,7 @@ function onSearch(e) {
   clearArticlesContainer();
   API.query = e.currentTarget.elements.query.value;
   API.resetPage();
-  complitFilmCard().then(templateCard).catch(onError).finally(resetForm);
+  API.insertGenresToSearch().then(templateCard).catch(onError).finally(resetForm);
 }
 
 function templateCard(markup) {
@@ -30,19 +30,6 @@ function onError() {
 
 function clearArticlesContainer() {
   refs.cardContainer.innerHTML = '';
-}
-
-//запрос вместе з жанрами
-function complitFilmCard() {
-  return API.fetchSearchMovies().then(data => {
-    return API.fetchGenres().then(genresList => {
-      return data.map(movie => ({
-        ...movie,
-
-        genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
-      }));
-    });
-  });
 }
 
 //чистим инпут после отработки запроса
