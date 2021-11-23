@@ -35,23 +35,30 @@
 
 .next-btn,
 .prev-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   background-color: #f7f7f7;
-
+  color: $pagination-color;
   transition: all 250ms ease;
 
   &:hover,
   &:focus {
+    color: $accent-color;
     box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
       0px 1px 1px rgba(0, 0, 0, 0.12);
     outline: none;
   }
 }
 
+.prev-btn__icon {
+  fill: currentColor;
+}
 .next-btn {
   // background-image: url(/src/images/arrow-right.svg);
   background-size: cover;
