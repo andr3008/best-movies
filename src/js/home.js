@@ -3,27 +3,23 @@ import getRefs from './getRefs';
 import cardTemp from '../templates/cardTemplate.hbs';
 import Pagination from './pagination';
 
-
 const refs = getRefs();
 
 function templateCard(markup) {
   cardContainer.innerHTML = cardTemp(markup);
 }
 
-
 const apiService = new fetchAPI();
 
 const pagination = new Pagination();
 
-const cardContainer = document.querySelector('.collection-list');
+const cardContainer = refs.cardContainer;
 pagination.init();
 
 refs.paginationList.addEventListener('click', onBtnClick);
- refs.prevBtn.addEventListener('click', onPrevBtnClick);
+refs.prevBtn.addEventListener('click', onPrevBtnClick);
 refs.nextBtn.addEventListener('click', onNextBtnClick);
- refs.searchForm.addEventListener('submit', onSearch);
-
-
+refs.searchForm.addEventListener('submit', onSearch);
 
 function onSearch(e) {
   e.preventDefault();
@@ -31,13 +27,12 @@ function onSearch(e) {
   apiService.resetPage();
   if (apiService.query.length === 0) {
     onError();
+    render();
   }
   resetError();
   refs.pageList.innerHTML = '';
-     pagination.currentPage = 1;
-  searchFetchMovie()
-  
-  
+  pagination.currentPage = 1;
+  searchFetchMovie();
 }
 
 function onError() {
@@ -56,7 +51,7 @@ function resetForm() {
   refs.input.value = '';
 }
 
-  //  изменение нумерации при клике на кнопки с цифрами
+//  изменение нумерации при клике на кнопки с цифрами
 function onBtnClick(evt) {
   evt.preventDefault();
 
@@ -69,7 +64,7 @@ function onBtnClick(evt) {
 
   pagination.currentPage = Number(evt.target.textContent);
   apiService.pagination(pagination.currentPage);
-    
+
   if (apiService.query) {
     searchFetchMovie();
   } else {
@@ -101,11 +96,11 @@ function onNextBtnClick(evt) {
   if (pagination.currentPage !== pagination.totalPages) {
     pagination.currentPage += 1;
   }
-  
+
   cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
   apiService.pagination(pagination.currentPage);
-    
+
   if (apiService.query) {
     searchFetchMovie();
   } else {
@@ -114,16 +109,16 @@ function onNextBtnClick(evt) {
 }
 
 //  обработка ответа API по умолчанию(популярные фильмы) и отрисовка страницы
-function fetchGall() {
-    apiService
-        .fetch()
-        .then(data => {
-            pagination.totalPages = data.total_pages;
-            refs.lastBtn.textContent = pagination.totalPages;
-            pagination.init();
-            return data.results;
-        })
-      .then(data => {
+export function fetchGall() {
+  apiService
+    .fetch()
+    .then(data => {
+      pagination.totalPages = data.total_pages;
+      refs.lastBtn.textContent = pagination.totalPages;
+      pagination.init();
+      return data.results;
+    })
+    .then(data => {
       return apiService.fetchGenres().then(genresList => {
         return data.map(movie => ({
           ...movie,
@@ -131,10 +126,11 @@ function fetchGall() {
           genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
         }));
       });
-    }).then(templateCard).catch(error => console.log(error));
-        
-};
-  apiService.pagination(pagination.currentPage);
+    })
+    .then(templateCard)
+    .catch(error => console.log(error));
+}
+apiService.pagination(pagination.currentPage);
 fetchGall();
 
 // // // обработка ответа API по поиску и отрисовка страницы
@@ -147,14 +143,14 @@ function searchFetchMovie() {
       refs.lastBtn.textContent = pagination.totalPages;
       pagination.init();
       return data.results;
-    })    
+    })
     .then(data => {
       if (data.length < 1) {
         onError();
         apiService.query = '';
         fetchGall();
       }
-      
+
       return apiService.fetchGenres().then(genresList => {
         return data.map(movie => ({
           ...movie,
@@ -162,7 +158,7 @@ function searchFetchMovie() {
           genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
         }));
       });
-    }).then(templateCard).finally(resetForm());
-
+    })
+    .then(templateCard)
+    .finally(resetForm());
 }
-

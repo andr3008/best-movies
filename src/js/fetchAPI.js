@@ -5,7 +5,6 @@ export default class NewApiService {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
-    
   }
   fetchTempMovies() {
     return fetch(
@@ -24,7 +23,7 @@ export default class NewApiService {
       .then(({ results }) => {
         this.incrementPage();
         return results;
-        });
+      });
   }
 
   get query() {
@@ -97,6 +96,4 @@ export default class NewApiService {
   pagination(el) {
     this.page = el;
   }
-
 }
-
