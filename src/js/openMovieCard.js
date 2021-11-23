@@ -11,7 +11,7 @@ cardFilm.addEventListener('click', openModal);
 
 function openModal(e) {
   e.preventDefault();
-  console.log(e.target);
+  // console.log(e.target);
   ApiInfo.fetchOneMovieInfo(e.target.dataset.action).then(data => {
     if (e.target.nodeName !== 'IMG') return;
     const markup = modalFilmCard(data);
