@@ -7,7 +7,7 @@ export default class NewApiService {
     this.page = 1;
   }
 
- fetch() {
+  fetch() {
     return fetch(
       `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US&page=${this.page}`,
     ).then(response => response.json());
@@ -19,7 +19,7 @@ export default class NewApiService {
     ).then(response => response.json());
   }
 
-   fetchGenres() {
+  fetchGenres() {
     return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(data => {
@@ -27,14 +27,13 @@ export default class NewApiService {
       });
   }
 
-  
-
   fetchOneMovieInfo(movie_id) {
     return fetch(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en-US`)
       .then(response => response.json())
-      .then(data => {
-        return data;
-      });
+      .then(data => ({
+        ...data,
+        popularity: data.popularity.toFixed(1),
+      }));
   }
 
   get query() {
@@ -52,9 +51,6 @@ export default class NewApiService {
   resetPage() {
     this.page = 1;
   }
-
- 
-  
 
   pagination(el) {
     this.page = el;
