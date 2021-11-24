@@ -1,8 +1,7 @@
 import modalFilmCard from '../templates/modalCardTemp.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import getRefs from './getRefs';
-const refs = getRefs();
+
 // import onAddWatchedClick  from "./addToLocalStorage.js";
 import Library from './addToLocalStorage';
 
@@ -32,7 +31,7 @@ function openModal(e) {
     const modalAddQueue = document.querySelector('.js-addQueue');
     modalAddQueue.addEventListener('click', library.onAddQueueClick);
 
-     const modalDeleteQueue = document.querySelector('.js-deleteQueue');
+    const modalDeleteQueue = document.querySelector('.js-deleteQueue');
     modalDeleteQueue.addEventListener('click', library.onAddQueueClick);
 
     //Function to close modalCard
@@ -53,18 +52,3 @@ function openModal(e) {
     }
   });
 }
-
-// function openModal(e) {
-//   e.preventDefault();
-//   const li = document.querySelector('.card')
-//   if (li.dataset.action) {
-//     fetchOneMovieInfo(+e.target.dataset.action).then(onOpenCard);
-//     console.log(li.dataset.action)
-//   }
-// }
-
-// function onOpenCard(oneMarkup) {
-//   const markup = modalFilmCard(oneMarkup);
-//     const modal = basicLightbox.create(markup);
-//     modal.show();
-// }

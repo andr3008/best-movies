@@ -78,3 +78,15 @@
     margin-bottom: 30px;
   }
 }
+.library-card__vote_average {
+  display: inline-block;
+  font-size: 10px;
+  text-align: center;
+  width: 27px;
+  height: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #ff6b08;
+  border-radius: 5px;
+  border: 1px solid #ff6b08;
+}
