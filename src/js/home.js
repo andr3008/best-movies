@@ -27,7 +27,6 @@ function onSearch(e) {
   apiService.resetPage();
   if (apiService.query.length === 0) {
     onError();
-    render();
   }
   resetError();
   refs.pageList.innerHTML = '';
