@@ -30,6 +30,7 @@ function onHomeBtnOpen() {
   playLogo();
   resetError();
   fetchGall();
+  refs.pageList.innerHTML = '';
 }
 
 //меняем оверлей

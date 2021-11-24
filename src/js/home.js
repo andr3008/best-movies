@@ -9,6 +9,12 @@ function templateCard(markup) {
   cardContainer.innerHTML = cardTemp(markup);
 }
 
+// function preLoader() {
+//   const loader = document.querySelector('.loader');
+//   loader.classList.remove('hide-loader');
+//     setTimeout(()=>loader.classList.add('hide-loader'), 1000)
+//   };
+
 const apiService = new fetchAPI();
 
 const pagination = new Pagination();
@@ -129,9 +135,9 @@ export function fetchGall() {
     })
     .then(templateCard)
     .catch(error => console.log(error));
+
 }
-apiService.pagination(pagination.currentPage);
-fetchGall();
+
 
 // // // обработка ответа API по поиску и отрисовка страницы
 
@@ -161,4 +167,8 @@ function searchFetchMovie() {
     })
     .then(templateCard)
     .finally(resetForm());
+ 
 }
+
+apiService.pagination(pagination.currentPage);
+fetchGall();

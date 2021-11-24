@@ -4,7 +4,6 @@ import './js/fetchCard';
 
 import './js/fetchAPI';
 import './js/navigation';
-import './js/search';
 
 import './js/loader';
 
