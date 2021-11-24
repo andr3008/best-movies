@@ -144,19 +144,18 @@ function searchFetchMovie() {
       return data.results;
     })
     .then(data => {
-      if (data.length < 1) {
+      if (data.length === 0) {
         onError();
-        apiService.query = '';
         fetchGall();
+      } else {
+        return apiService.fetchGenres().then(genresList => {
+          return data.map(movie => ({
+            ...movie,
+
+            genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
+          }));
+        });
       }
-
-      return apiService.fetchGenres().then(genresList => {
-        return data.map(movie => ({
-          ...movie,
-
-          genres: movie.genre_ids.map(id => genresList.filter(el => el.id === id)).flat(),
-        }));
-      });
     })
     .then(templateCard)
     .finally(resetForm());
