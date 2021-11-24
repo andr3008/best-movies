@@ -21,6 +21,7 @@ function openModal(e) {
     const markup = modalFilmCard(data);
     const modal = basicLightbox.create(markup);
     modal.show();
+    // document.body.style.overflow = 'hidden';  // --------------отключение скролла (можно попробовать если дописать)
     
     const modalAddWatched = document.querySelector('.js-addWatched');
     modalAddWatched.addEventListener('click', library.onAddWatchedClick)
@@ -28,8 +29,8 @@ function openModal(e) {
     const modalAddQueue = document.querySelector('.js-addQueue')
     modalAddQueue.addEventListener('click', library.onAddQueueClick)
 
-  });
-}
+  })
+};
 
 // function openModal(e) {
 //   e.preventDefault();
@@ -45,13 +46,3 @@ function openModal(e) {
 //     const modal = basicLightbox.create(markup);
 //     modal.show();
 // }
-
-function modalHide() {
-    refs.modalBcdrop.classList.add('backdrop--is-hidden');
-    document.body.style.overflow = 'visible';
-}
-
-function modalShow() {
-    refs.modalBcdrop.classList.remove('backdrop--is-hidden');
-    document.body.style.overflow = 'hidden';
-}
