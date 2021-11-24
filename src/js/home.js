@@ -5,8 +5,14 @@ import Pagination from './pagination';
 
 const refs = getRefs();
 
-function templateCard(markup) {
-  cardContainer.innerHTML = cardTemp(markup);
+function templateCard(films) {
+  let filmList = films.length;
+  if (filmList >= 1) {
+    cardContainer.innerHTML = cardTemp(films);
+  } else {
+    onError();
+    fetchGall();
+  }
 }
 
 const apiService = new fetchAPI();
@@ -27,7 +33,7 @@ function onSearch(e) {
   apiService.resetPage();
   if (apiService.query.length === 0) {
     onError();
-    render();
+    fetchGall();
   }
   resetError();
   refs.pageList.innerHTML = '';
