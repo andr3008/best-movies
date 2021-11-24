@@ -24,10 +24,16 @@ function openModal(e) {
     // document.body.style.overflow = 'hidden';  // --------------отключение скролла (можно попробовать если дописать)
 
     const modalAddWatched = document.querySelector('.js-addWatched');
-    modalAddWatched.addEventListener('click', library.onAddWatchedClick);
+    modalAddWatched.addEventListener('click', library.onAddWatchedClick(modalAddWatched));
+
+    const modalDeleteWatched = document.querySelector('.js-deleteWatched');
+    modalDeleteWatched.addEventListener('click', library.onAddWatchedClick);
 
     const modalAddQueue = document.querySelector('.js-addQueue');
     modalAddQueue.addEventListener('click', library.onAddQueueClick);
+
+     const modalDeleteQueue = document.querySelector('.js-deleteQueue');
+    modalDeleteQueue.addEventListener('click', library.onAddQueueClick);
 
     //Function to close modalCard
     const closeBtn = document.querySelector('.js-modal__close-btn');
