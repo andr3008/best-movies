@@ -32,6 +32,7 @@
     "basiclightbox": "^5.0.4",
     "fi": "0.0.5",
     "firebase": "^9.5.0",
+    "firebaseui": "^6.0.0",
     "lodash.throttle": "^4.1.1",
     "pnotify": "^5.2.0",
     "vivus": "^0.4.6"
