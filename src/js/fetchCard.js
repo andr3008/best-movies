@@ -1,19 +1,30 @@
-import cardTemp from '../templates/cardTemplate.hbs';
-import NewApiService from '../js/fetchAPI';
-const newApiService = new NewApiService();
+// import cardTemp from '../templates/cardTemplate.hbs';
+// import NewApiService from '../js/fetchAPI';
 
-const cardContainer = document.querySelector('.collection-list');
+// const newApiService = new NewApiService();
 
-export function render() {
-  newApiService.page = 1;
-  newApiService
-    .insertGenresToMovieList()
-    .then(templateCard)
-    .catch(error => {
-      console.log(error);
-    });
-}
-render();
-function templateCard(markup) {
-  cardContainer.innerHTML = cardTemp(markup);
-}
+// const cardContainer = document.querySelector('.collection-list');
+
+
+// export function render() {
+//   newApiService.page = 1;
+//   newApiService
+//     .insertGenresToMovieList()
+//     .then(templateCard)
+//     .catch(error => {
+//       console.log(error);
+//     });
+   
+// }
+
+// render();
+
+
+// // render();
+// function templateCard(markup) {
+//   cardContainer.innerHTML = cardTemp(markup);
+// }
+
+
+
+

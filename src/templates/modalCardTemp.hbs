@@ -1,136 +1,41 @@
-{{! ------------было закомментировано--------}}
-{{!-- <div class="modal-card" data-action="{{id}}">
-    <div>
-        <img class="image" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}" />
-    </div>
-
-    <div class=" cardItem">
-        <h2 class="cardItem__name">{{title}}</h2>
-        <p class="cadrItem__vote cardItem_text">
-            Vote / Votes<span class="cardItem__vote_average">{{vote_average}}</span>/<span
-                class="cardItem__vote_count">{{vote_count}}</span>
-        </p>
-        <p class="cardItem__popularity cardItem_text">
-            Popularity<span class="cardItem___data">{{popularity}}</span>
-        </p>
-        <p class="cardItem-Title cardItem_text">
-            Original Title<span class="cardItem__title_data">{{original_title}}</span>
-        </p>
-        <div class="genres">
-            <p class="cardItem__genre cardItem_text">
-                Genre
-            </p>
-            <p class="cardItem__genreList">{{#each genres}}
-                <span class="cardItem__genre_data">{{this.name}}</span>
-                {{/each}}</p>
-            <p class="cardItem__about">About</p><p class="cardItem__description"> {{overview}}</p>
-        </div> --}}
-{{! ------------было закомментировано--------}}
-
-{{! ///////////////было активно/////////////////// }}
-{{!-- <div class='modal-card' data-action='{{id}}'>
-  <div class='cardItem__image'>
-    <img class='image' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}' />
-  </div>
-
-  <div class='cardItem__wrapper'>
-    <h2 class='cardItem__name'>{{title}}</h2>
-    <p class='cadrItem__vote cardItem_text'>
-      Vote / Votes<span class='cardItem__vote_average'>{{vote_average}}</span>/<span
-        class='cardItem__vote_count'
-      >{{vote_count}}</span>
-    </p>
-    <p class='cardItem__popularity cardItem_text'>
-      Popularity<span class='cardItem___data'>{{popularity}}</span>
-    </p>
-    <p class='cardItem-Title cardItem_text'>
-      Original Title<span class='cardItem__title_data'>{{original_title}}</span>
-    </p>
-    <div class='genres'>
-      <p class='cardItem__genre cardItem_text'>
-        Genre
-      </p>
-      <p class='cardItem__genreList'>{{#each genres}}
-          <span class='cardItem__genre_data'>{{this.name}}</span>
-        {{/each}}</p>
-
-    </div>
-
-    <p class='cardItem__about'>About</p>
-    <p class='cardItem__description'>
-      {{overview}}
-    </p>
-    <div class='cardItem__listButton'>
-      <button class='cardItem__button'>
-        Add to watched
-      </button>
-      <button class='cardItem__button'>
-        Add to queue
-      </button> --}}
-{{! ///////////////было активно/////////////////// }}
-
-{{! ------------было закомментировано--------}}
-{{! <ul class='storage'>
-        <li class='storage__item'>
-          <label class='storage__label'>
-            <input type='checkbox' value='Watched' class='storage__input visuallyhidden' />
-            <span class='storage__btn' id='js-WatchedButton'>Watched</span>
-          </label>
-        </li>
-        <li class='storage__item'>
-          <label class='storage__label'>
-            <input type='checkbox' value='Queue' class='storage__input visuallyhidden' />
-            <span class='storage__btn' id='js-QueueButton'>Queue</span>
-          </label>
-        </li>
-      </ul> }}
-{{! ------------было закомментировано--------}}
-{{! ///////////////было активно/////////////////// }}
-{{! </div>
-  </div>
-  <div class='modal-close-btn'>Close</div>
-</div> }}
-{{! ///////////////было активно/////////////////// }}
-
-{{!new--------}}
-
 <div class='modal-card modal__content'>
-  <button class='modal__close-btn js-modal__dev-close-btn'>
-    <svg class='modal__close-icon' width='30' height='30'>
-      <use href='./images/symbol-defs.svg#close-icon'></use>
+  <button class='modal__close-btn js-modal__close-btn'>
+    {{!-- <svg class="modal__close-icon" width="30" height="30">
+      <use href="./images/symbol-defs.svg#close-icon"></use>
+    </svg> --}}
+    <svg class="modal__close-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+      viewBox="0 0 30 30" style=" fill:#000000;">
+      <path
+        d="M 7.21875 5.78125 L 5.78125 7.21875 L 14.5625 16 L 5.78125 24.78125 L 7.21875 26.21875 L 16 17.4375 L 24.78125 26.21875 L 26.21875 24.78125 L 17.4375 16 L 26.21875 7.21875 L 24.78125 5.78125 L 16 14.5625 Z">
+      </path>
     </svg>
   </button>
 
   <div class='cardItem__image'>
-    <img
-      class='image'
-      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
-      alt='{{title}}'
-      data-action='{{id}}'
-    />
+    <img class='image js-image' src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+      onerror="this.onerror=null;this.src='https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';"
+      class='image js-image' src='https://image.tmdb.org/t/p/w500{{poster_path}}' alt='{{title}}'
+      data-action='{{id}}' />
   </div>
 
   <div class='cardItem__wrapper'>
-    <h2 class='cardItem__name'>Title{{title}}</h2>
+    <h2 class='cardItem__name'>{{title}}</h2>
 
     <div class='cadrItem__item'>
-      <ul class='cadrItem__list cardItem_text'>
-        <li class='cadrItem__vote'>Vote / Votes</li>
-        <li class='cardItem__popularity'>Popularity</li>
-        <li class='cardItem-title'>Original Title</li>
-        <li class='cardItem__genre'>Genre</li>
-      </ul>
-
-      <ul class='cadrItem__list cardItem__descr'>
-        <li class='cadrItem__vote'>
+      <ul class='cadrItem__list'>
+        <li class='cardItem_text cadrItem__vote'>Vote / Votes</li>
+        <li class='cardItem_text cardItem__popularity'>Popularity</li>
+        <li class='cardItem_text cardItem-title'>Original Title</li>
+        <li class='cardItem_text cardItem__genre'>Genre</li>
+        <li class='cardItem__descr cadrItem__vote'>
           <span class='cardItem__vote_average'>{{vote_average}}</span>/
           <span class='cardItem__vote_count'>{{vote_count}}</span>
         </li>
-        <li class='cardItem__popularity cardItem___data'>Popularity{{popularity}}</li>
-        <li class='cardItem__orig-title cardItem__title_data'>Original Title{{original_title}}</li>
-        <li class='cardItem__genre cardItem__genreList'>
+        <li class='cardItem__descr cardItem__popularity cardItem___data'>{{popularity}}</li>
+        <li class='cardItem__descr cardItem__orig-title cardItem__title_data'>{{original_title}}</li>
+        <li class='cardItem__descr cardItem__genre cardItem__genreList'>
           {{#each genres}}
-            <span class='cardItem__genre_data'>{{this.name}}</span>
+          <span class='cardItem__genre_data'>{{this.name}}</span>
           {{/each}}
         </li>
       </ul>
@@ -140,9 +45,13 @@
     <p class='cardItem__description'>{{overview}}</p>
 
     <div class='cardItem__listButton'>
-      <button class='cardItem__button'>Add to watched</button>
-      <button class='cardItem__button btn__addQueue'>Add to queue</button>
+      <button class='cardItem__button js-addWatched'>Add to watched</button>
+      <button class='cardItem__button js-deleteWatched hide'>Delete from watched</button>
+
+      <button class='cardItem__button js-addQueue btn__addQueue'>Add to queue</button>
+      <button class='cardItem__button js-deleteQueue btn__addQueue hide'>Delete from queue</button>
     </div>
   </div>
 
 </div>
+

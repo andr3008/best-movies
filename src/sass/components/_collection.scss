@@ -1,0 +1,92 @@
+.collection-list {
+  padding-bottom: 40px;
+  padding-top: 20px;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+    padding-top: 60px;
+    margin: 0;
+  }
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 46px;
+    padding-top: 60px;
+  }
+}
+.card {
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 250ms linear;
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    width: calc((100% - 30px) / 2);
+  }
+  @media screen and (min-width: 1024px) {
+    width: calc((100% - 30px * 2) / 3);
+  }
+}
+.card:hover,
+.card:focus {
+  transform: scale(1.03);
+}
+.card__title,
+.card__text {
+  font-family: $mainFont;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+}
+.card__title {
+  text-transform: uppercase;
+  color: $pagination-color;
+}
+.card__text {
+  color: $accent-color;
+}
+.card img {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  height: 402px;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 294px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .collection__container {
+    width: 320px;
+  }
+  .card:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .card:not(:nth-child(2n)) {
+    margin-right: 30px;
+  }
+  .card:not(:nth-last-child(-n + 2)) {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .card:not(:nth-child(3n)) {
+    margin-right: 30px;
+  }
+  .card:not(:nth-last-child(-n + 3)) {
+    margin-bottom: 30px;
+  }
+}
+.library-card__vote_average {
+  display: inline-block;
+  font-size: 10px;
+  text-align: center;
+  width: 27px;
+  height: 13px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #ff6b08;
+  border-radius: 5px;
+  border: 1px solid #ff6b08;
+}
