@@ -2,6 +2,7 @@ import fetchAPI from './fetchAPI';
 import getRefs from './getRefs';
 import cardTemp from '../templates/cardTemplate.hbs';
 import Pagination from './pagination';
+import { loader } from './loader';
 
 const refs = getRefs();
 
@@ -112,6 +113,7 @@ function onNextBtnClick(evt) {
 
 //  обработка ответа API по умолчанию(популярные фильмы) и отрисовка страницы
 export function fetchGall() {
+  loader.start();
   apiService
     .fetch()
     .then(data => {
@@ -130,13 +132,21 @@ export function fetchGall() {
       });
     })
     .then(templateCard)
+
+    .catch(console.log);
+  //.finally(loader.stop);
+
     .catch(error => console.log(error));
+
 }
 
+apiService.pagination(pagination.currentPage);
+fetchGall();
 
 // // // обработка ответа API по поиску и отрисовка страницы
 
 function searchFetchMovie() {
+  loader.start();
   apiService
     .searchFetch()
     .then(data => {
@@ -160,9 +170,6 @@ function searchFetchMovie() {
       }
     })
     .then(templateCard)
-    .finally(resetForm());
- 
+    .catch(error => console.log(error))
+    .finally(resetForm);
 }
-
-apiService.pagination(pagination.currentPage);
-fetchGall();
