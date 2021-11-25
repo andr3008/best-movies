@@ -2,18 +2,13 @@ import fetchAPI from './fetchAPI';
 import getRefs from './getRefs';
 import cardTemp from '../templates/cardTemplate.hbs';
 import Pagination from './pagination';
+import { startLoader, stopLoader } from './loader';
 
 const refs = getRefs();
 
 function templateCard(markup) {
   cardContainer.innerHTML = cardTemp(markup);
 }
-
-// function preLoader() {
-//   const loader = document.querySelector('.loader');
-//   loader.classList.remove('hide-loader');
-//     setTimeout(()=>loader.classList.add('hide-loader'), 1000)
-//   };
 
 const apiService = new fetchAPI();
 
@@ -54,6 +49,7 @@ export function resetError() {
 //чистим инпут после отработки запроса
 function resetForm() {
   refs.input.value = '';
+  stopLoader();
 }
 
 //  изменение нумерации при клике на кнопки с цифрами
@@ -115,6 +111,7 @@ function onNextBtnClick(evt) {
 
 //  обработка ответа API по умолчанию(популярные фильмы) и отрисовка страницы
 export function fetchGall() {
+  startLoader();
   apiService
     .fetch()
     .then(data => {
@@ -133,14 +130,17 @@ export function fetchGall() {
       });
     })
     .then(templateCard)
-    .catch(error => console.log(error));
-
+    .catch(error => console.log(error))
+    .finally(stopLoader);
 }
 
+apiService.pagination(pagination.currentPage);
+fetchGall();
 
 // // // обработка ответа API по поиску и отрисовка страницы
 
 function searchFetchMovie() {
+  startLoader();
   apiService
     .searchFetch()
     .then(data => {
@@ -164,9 +164,6 @@ function searchFetchMovie() {
       }
     })
     .then(templateCard)
-    .finally(resetForm());
- 
+    .catch(error => console.log(error))
+    .finally(resetForm);
 }
-
-apiService.pagination(pagination.currentPage);
-fetchGall();
