@@ -3,6 +3,22 @@
 @import './base/common';
 @import './base/container';
 @import './base/section';
+
+@import './header';
+@import './base/theme';
+@import './layout/footer';
+@import './base/collection.scss';
+@import './layout/dev-modal.scss';
+@import './layout/pagination.scss';
+@import './layout/btnUp.scss';
+@import './layout/cardModal.scss';
+//============== registration, loader and spinner=====================
+// @import './base/loader.scss';
+@import './layout/registration';
+@import './base/test-loader';
+@import './layout/spinner';
+@import '../../node_modules/@pnotify/core/dist/BrightTheme.css';
+
 // @import './base/loader.scss';
 @import './components/theme';
 @import './components/collection';
@@ -15,3 +31,4 @@
 
 @import './layout/header';
 @import './layout/footer';
+
