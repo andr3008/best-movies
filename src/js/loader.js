@@ -1,3 +1,4 @@
+
 const loaderRef = document.querySelector('.loader');
 
 document.body.onload = () => {
@@ -16,3 +17,11 @@ export const loader = {
     loaderRef.classList.remove('hide-loader');
   },
 };
+
+window.addEventListener('load', spinnerLoader);
+
+function spinnerLoader() {
+  const loader = document.querySelector('.loader');
+  loader.classList.add('hide-loader');
+};
+
