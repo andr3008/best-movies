@@ -27,7 +27,6 @@ function onSearch(e) {
   if (apiService.query.length === 0) {
     onError();
   }
-  resetError();
   refs.pageList.innerHTML = '';
   pagination.currentPage = 1;
   searchFetchMovie();
@@ -39,10 +38,10 @@ function onError() {
   refs.input.placeholder = '';
 }
 
-export function resetError() {
+export default function resetError() {
   refs.searchIcon.classList.remove('hide');
   refs.error.classList.add('hide');
-  refs.input.placeholder = 'Поиск фильмов';
+  refs.input.placeholder = 'Поиск фильмов'; 
 }
 //чистим инпут после отработки запроса
 function resetForm() {
@@ -80,6 +79,7 @@ function onPrevBtnClick(evt) {
   refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
   apiService.pagination(pagination.currentPage);
+  
 
   if (apiService.query) {
     searchFetchMovie();
@@ -94,11 +94,10 @@ function onNextBtnClick(evt) {
   if (pagination.currentPage !== pagination.totalPages) {
     pagination.currentPage += 1;
   }
-
   refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
   apiService.pagination(pagination.currentPage);
-
+ 
   if (apiService.query) {
     searchFetchMovie();
   } else {
@@ -111,6 +110,9 @@ export function fetchGall() {
   apiService
     .fetch()
     .then(data => {
+      if (data.page > 1) {
+        resetError();
+      } 
       pagination.totalPages = data.total_pages;
       refs.lastBtn.textContent = pagination.totalPages;
       pagination.init();
@@ -157,6 +159,7 @@ function searchFetchMovie() {
         onError();
         fetchGall();
       } else {
+        resetError();
         return apiService.fetchGenres().then(genresList => {
           return data.map(movie => ({
             ...movie,

@@ -42,12 +42,5 @@ export default function getRefs() {
     lastPage: document.querySelector('.last'),
     scrollToTopBtn: document.querySelector('.scrollToTopBtn'),
 
-    paginationList: document.querySelector('.pagination-mid'),
-    pageList: document.querySelector('.pages'),
-    lastBtn: document.getElementById('last-page'),
-    prevBtn: document.getElementById('button-prev'),
-    nextBtn: document.getElementById('button-next'),
-    firstPage: document.querySelector('.first'),
-    lastPage: document.querySelector('.last'),
   };
 }
