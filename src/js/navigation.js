@@ -1,33 +1,20 @@
 import getRefs from './getRefs';
 const refs = getRefs();
-import Pagination from './pagination';
-import fetchAPI from './fetchAPI';
 
 import playLogo from './logoAnime';
 
 import { resetError } from './home';
-import { fetchGall } from './home';
-
-const apiService = new fetchAPI();
-
-const pagination = new Pagination();
 
 refs.libraryBtn.addEventListener('click', onLibraryBtnOpen);
 refs.homeBtn.addEventListener('click', onHomeBtnOpen);
 refs.logo.addEventListener('click', onHomeBtnOpen);
-
 
 function onLibraryBtnOpen() {
   changeWorkplace(refs.searchForm, refs.libraryContainer);
   changeBtnActive(refs.libraryBtn, refs.homeBtn);
   changeOverlay('library-overlay', 'overlay');
   playLogo();
-
-  // alert('нужна отрисовка контейнера');
   refs.error.classList.add('hide');
-
-  // resetError();
-  // alert('нужна отрисовка контейнера');
 }
 
 function onHomeBtnOpen() {
@@ -36,14 +23,7 @@ function onHomeBtnOpen() {
   changeOverlay('overlay', 'library-overlay');
   playLogo();
   resetError();
-//   fetchGall();
-//   refs.pageList.innerHTML = '';
-// apiService.resetPage;
-//   refs.cardContainer.innerHTML = '';
-//   apiService.pagination(pagination.currentPage);
   window.location.reload();
-  
-  
 }
 
 //меняем оверлей
