@@ -1,3 +1,5 @@
+import { loader } from './loader';
+
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '9aaadf590dc90bb88adc9b4200a95438';
 
@@ -8,15 +10,21 @@ export default class NewApiService {
   }
 
   fetch() {
+    loader.start();
     return fetch(
       `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US&page=${this.page}`,
-    ).then(response => response.json());
+    )
+      .then(response => response.json())
+      .finally(loader.stop);
   }
 
   searchFetch() {
+    loader.start();
     return fetch(
       `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${this.page}&query=${this.searchQuery}`,
-    ).then(response => response.json());
+    )
+      .then(response => response.json())
+      .finally(loader.stop);
   }
 
   fetchGenres() {
@@ -28,12 +36,14 @@ export default class NewApiService {
   }
 
   fetchOneMovieInfo(movie_id) {
+    loader.start();
     return fetch(`${BASE_URL}/movie/${movie_id}?api_key=${API_KEY}&language=en-US`)
       .then(response => response.json())
       .then(data => ({
         ...data,
         popularity: data.popularity.toFixed(1),
-      }));
+      }))
+      .finally(loader.stop);
   }
 
   get query() {
