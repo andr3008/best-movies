@@ -12,7 +12,7 @@ export const loader = {
   stop: function () {
     setTimeout(() => {
       loaderRef.classList.add('hide-loader');
-    }, 1000);
+    }, 600);
   },
 
   start: function () {
