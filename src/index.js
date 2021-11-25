@@ -1,6 +1,5 @@
 import './sass/main.scss';
 import './js/changeTheme';
-import './js/fetchCard';
 import './js/fetchAPI';
 import './js/navigation';
 import './js/loader';
