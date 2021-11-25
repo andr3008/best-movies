@@ -129,8 +129,8 @@ export function fetchGall() {
       });
     })
     .then(templateCard)
-    .catch(error => console.log(error))
-    .finally(loader.stop);
+    .catch(console.log);
+  //.finally(loader.stop);
 }
 
 apiService.pagination(pagination.currentPage);
