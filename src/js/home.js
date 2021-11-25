@@ -133,7 +133,7 @@ export function fetchGall() {
     })
     .then(templateCard)
 
-    .catch(console.log);
+   // .catch(console.log);
   //.finally(loader.stop);
 
     .catch(error => console.log(error));
