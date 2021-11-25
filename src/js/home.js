@@ -126,7 +126,16 @@ export function fetchGall() {
       });
     })
     .then(templateCard)
+
     .catch(error => console.log(error));
+
+
+   // .catch(console.log);
+  //.finally(loader.stop);
+
+    // .catch(error => console.log(error));
+
+
 }
 
 apiService.pagination(pagination.currentPage);
