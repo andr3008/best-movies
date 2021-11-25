@@ -136,7 +136,7 @@ export function fetchGall() {
    // .catch(console.log);
   //.finally(loader.stop);
 
-    .catch(error => console.log(error));
+    // .catch(error => console.log(error));
 
 }
 

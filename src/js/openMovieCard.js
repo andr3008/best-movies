@@ -2,13 +2,12 @@ import modalFilmCard from '../templates/modalCardTemp.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
-// import onAddWatchedClick  from "./addToLocalStorage.js";
-import Library from './addToLocalStorage';
-
 import NewApiService from '../js/fetchAPI';
 const ApiInfo = new NewApiService();
-const library = new Library();
 const cardFilm = document.querySelector('.js-card');
+
+const moviesWatched = [];
+const movieQueue = [];
 
 cardFilm.addEventListener('click', openModal);
 
@@ -22,17 +21,78 @@ function openModal(e) {
     modal.show();
     // document.body.style.overflow = 'hidden';  // --------------отключение скролла (можно попробовать если дописать)
 
+    // Кнопки =>>
+
     const modalAddWatched = document.querySelector('.js-addWatched');
-    modalAddWatched.addEventListener('click', library.onAddWatchedClick(modalAddWatched));
-
     const modalDeleteWatched = document.querySelector('.js-deleteWatched');
-    modalDeleteWatched.addEventListener('click', library.onAddWatchedClick);
-
     const modalAddQueue = document.querySelector('.js-addQueue');
-    modalAddQueue.addEventListener('click', library.onAddQueueClick);
-
     const modalDeleteQueue = document.querySelector('.js-deleteQueue');
-    modalDeleteQueue.addEventListener('click', library.onAddQueueClick);
+
+    // Кнопки <<=
+    const modalImageRef = document.querySelector('.js-image');
+    const idElem = modalImageRef.dataset.action;
+
+    // Условие включения кнопок=>>
+    
+    if (moviesWatched.includes(idElem)) {
+      modalAddWatched.classList.add('hide');
+      modalDeleteWatched.classList.remove('hide');
+    }
+
+    if (movieQueue.includes(idElem)) {
+      modalAddQueue.classList.add('hide');
+      modalDeleteQueue.classList.remove('hide');
+    }
+    // Условие включения кнопок <<=
+
+    // Слушатели =>>
+    modalAddWatched.addEventListener('click', onClickToAddWathedMovie);
+    modalDeleteWatched.addEventListener('click', onClickToDeleteWathedMovie);
+    modalAddQueue.addEventListener('click', onClickToAddQueueMovie);
+    modalDeleteQueue.addEventListener('click', onClickToDeleteQueueMovie);
+    // Слушатели <<=
+
+    // Функции слушателей =>>
+    function onClickToAddWathedMovie() {
+        if (moviesWatched.includes(idElem)) return;
+
+        modalAddWatched.classList.add('hide');
+        modalDeleteWatched.classList.remove('hide')
+
+        moviesWatched.push(idElem);
+        localStorage.setItem('moviesWatched', JSON.stringify(moviesWatched));
+      }
+      
+    function onClickToDeleteWathedMovie() {
+      modalDeleteWatched.classList.add('hide')
+      modalAddWatched.classList.remove('hide');
+
+        moviesWatched.splice(moviesWatched.indexOf(idElem), 1);
+        localStorage.removeItem('moviesWatched');
+        localStorage.setItem('moviesWatched', JSON.stringify(moviesWatched));
+      
+    }
+
+    function onClickToAddQueueMovie() {
+      if (movieQueue.includes(idElem)) return;
+
+      modalAddQueue.classList.add('hide');
+      modalDeleteQueue.classList.remove('hide');
+
+      movieQueue.push(idElem);
+      localStorage.setItem('movieQueue', JSON.stringify(movieQueue));
+    }
+
+    function onClickToDeleteQueueMovie() {
+      modalDeleteQueue.classList.add('hide');
+      modalAddQueue.classList.remove('hide');
+
+      movieQueue.splice(movieQueue.indexOf(idElem), 1);
+      localStorage.removeItem('movieQueue');
+      localStorage.setItem('movieQueue', JSON.stringify(movieQueue));
+    }
+
+    // Функции слушателей <<=
 
     //Function to close modalCard
     const closeBtn = document.querySelector('.js-modal__close-btn');

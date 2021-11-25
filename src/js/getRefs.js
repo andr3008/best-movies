@@ -32,6 +32,7 @@ export default function getRefs() {
     signinSpinner: document.querySelector('.signin-spinner'),
     signUpSpinner: document.querySelector('.signup-spinner'),
 
+    paginationContainer:document.querySelector('.pagination'),
     paginationList: document.querySelector('.pagination-mid'),
     pageList: document.querySelector('.pages'),
     lastBtn: document.getElementById('last-page'),
