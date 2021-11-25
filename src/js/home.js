@@ -2,7 +2,7 @@ import fetchAPI from './fetchAPI';
 import getRefs from './getRefs';
 import cardTemp from '../templates/cardTemplate.hbs';
 import Pagination from './pagination';
-import { startLoader, stopLoader } from './loader';
+import { loader } from './loader';
 
 const refs = getRefs();
 
@@ -49,7 +49,6 @@ export function resetError() {
 //чистим инпут после отработки запроса
 function resetForm() {
   refs.input.value = '';
-  stopLoader();
 }
 
 //  изменение нумерации при клике на кнопки с цифрами
@@ -111,7 +110,7 @@ function onNextBtnClick(evt) {
 
 //  обработка ответа API по умолчанию(популярные фильмы) и отрисовка страницы
 export function fetchGall() {
-  startLoader();
+  loader.start();
   apiService
     .fetch()
     .then(data => {
@@ -131,7 +130,7 @@ export function fetchGall() {
     })
     .then(templateCard)
     .catch(error => console.log(error))
-    .finally(stopLoader);
+    .finally(loader.stop);
 }
 
 apiService.pagination(pagination.currentPage);
@@ -140,7 +139,7 @@ fetchGall();
 // // // обработка ответа API по поиску и отрисовка страницы
 
 function searchFetchMovie() {
-  startLoader();
+  loader.start();
   apiService
     .searchFetch()
     .then(data => {

@@ -1,13 +1,18 @@
 const loaderRef = document.querySelector('.loader');
 
-function startLoader() {
-  loaderRef.classList.remove('hide-loader');
-}
+document.body.onload = () => {
+  setTimeout(() => {
+    if (!loaderRef.classList.contains('hide-loader')) {
+      loaderRef.classList.add('hide-loader');
+    }
+  }, 500);
+};
 
-function stopLoader() {
-  setTimeout(function () {
-    loaderRef.classList.add('hide-loader');
-  }, 300);
-}
-
-export { startLoader, stopLoader };
+export const loader = {
+  stop: function () {
+    setTimeout(loaderRef.classList.add('hide-loader'), 500);
+  },
+  start: function () {
+    loaderRef.classList.remove('hide-loader');
+  },
+};
