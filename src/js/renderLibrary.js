@@ -31,6 +31,7 @@ class LibraryPaint{
     renderWatchedContainer = () => {
         refs.watchedBtn.classList.add('library__btn--active');
         refs.queueBtn.classList.remove('library__btn--active');
+        refs.paginationContainer.classList.add('hide');
 
         const movies = JSON.parse(localStorage.getItem('moviesWatched'));
         return Promise.all(movies.map(id => newApi.fetchOneMovieInfo(id))).then(this.cardRender);
@@ -39,6 +40,7 @@ class LibraryPaint{
     renderQueueContainer = () => {
         refs.queueBtn.classList.add('library__btn--active');
         refs.watchedBtn.classList.remove('library__btn--active');
+        refs.paginationContainer.classList.add('hide');
 
         const movies = JSON.parse(localStorage.getItem('movieQueue'));
         return Promise.all(movies.map(id => newApi.fetchOneMovieInfo(id))).then(this.cardRender);

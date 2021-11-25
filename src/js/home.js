@@ -6,20 +6,13 @@ import Pagination from './pagination';
 const refs = getRefs();
 
 function templateCard(markup) {
-  cardContainer.innerHTML = cardTemp(markup);
+  refs.cardContainer.innerHTML = cardTemp(markup);
 }
-
-// function preLoader() {
-//   const loader = document.querySelector('.loader');
-//   loader.classList.remove('hide-loader');
-//     setTimeout(()=>loader.classList.add('hide-loader'), 1000)
-//   };
 
 const apiService = new fetchAPI();
 
 const pagination = new Pagination();
 
-const cardContainer = refs.cardContainer;
 pagination.init();
 
 refs.paginationList.addEventListener('click', onBtnClick);
@@ -34,7 +27,6 @@ function onSearch(e) {
   if (apiService.query.length === 0) {
     onError();
   }
-  resetError();
   refs.pageList.innerHTML = '';
   pagination.currentPage = 1;
   searchFetchMovie();
@@ -46,10 +38,10 @@ function onError() {
   refs.input.placeholder = '';
 }
 
-export function resetError() {
+export default function resetError() {
   refs.searchIcon.classList.remove('hide');
   refs.error.classList.add('hide');
-  refs.input.placeholder = 'Поиск фильмов';
+  refs.input.placeholder = 'Поиск фильмов'; 
 }
 //чистим инпут после отработки запроса
 function resetForm() {
@@ -64,7 +56,7 @@ function onBtnClick(evt) {
     return;
   }
 
-  cardContainer.innerHTML = '';
+  refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
 
   pagination.currentPage = Number(evt.target.textContent);
@@ -84,9 +76,10 @@ function onPrevBtnClick(evt) {
     pagination.currentPage -= 1;
   }
 
-  cardContainer.innerHTML = '';
+  refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
   apiService.pagination(pagination.currentPage);
+  
 
   if (apiService.query) {
     searchFetchMovie();
@@ -101,11 +94,10 @@ function onNextBtnClick(evt) {
   if (pagination.currentPage !== pagination.totalPages) {
     pagination.currentPage += 1;
   }
-
-  cardContainer.innerHTML = '';
+  refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
   apiService.pagination(pagination.currentPage);
-
+ 
   if (apiService.query) {
     searchFetchMovie();
   } else {
@@ -118,6 +110,9 @@ export function fetchGall() {
   apiService
     .fetch()
     .then(data => {
+      if (data.page > 1) {
+        resetError();
+      } 
       pagination.totalPages = data.total_pages;
       refs.lastBtn.textContent = pagination.totalPages;
       pagination.init();
@@ -133,10 +128,20 @@ export function fetchGall() {
       });
     })
     .then(templateCard)
+
     .catch(error => console.log(error));
+
+
+   // .catch(console.log);
+  //.finally(loader.stop);
+
+    // .catch(error => console.log(error));
+
 
 }
 
+apiService.pagination(pagination.currentPage);
+fetchGall();
 
 // // // обработка ответа API по поиску и отрисовка страницы
 
@@ -154,6 +159,7 @@ function searchFetchMovie() {
         onError();
         fetchGall();
       } else {
+        resetError();
         return apiService.fetchGenres().then(genresList => {
           return data.map(movie => ({
             ...movie,
@@ -164,9 +170,6 @@ function searchFetchMovie() {
       }
     })
     .then(templateCard)
-    .finally(resetForm());
- 
+    .catch(error => console.log(error))
+    .finally(resetForm);
 }
-
-apiService.pagination(pagination.currentPage);
-fetchGall();

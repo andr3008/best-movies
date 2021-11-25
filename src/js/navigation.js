@@ -4,7 +4,6 @@ const refs = getRefs();
 import playLogo from './logoAnime';
 
 import { resetError } from './home';
-import { fetchGall } from './home';
 
 refs.libraryBtn.addEventListener('click', onLibraryBtnOpen);
 refs.homeBtn.addEventListener('click', onHomeBtnOpen);
@@ -15,12 +14,7 @@ function onLibraryBtnOpen() {
   changeBtnActive(refs.libraryBtn, refs.homeBtn);
   changeOverlay('library-overlay', 'overlay');
   playLogo();
-
-  // alert('нужна отрисовка контейнера');
   refs.error.classList.add('hide');
-
-  // resetError();
-  // alert('нужна отрисовка контейнера');
 }
 
 function onHomeBtnOpen() {
@@ -29,8 +23,7 @@ function onHomeBtnOpen() {
   changeOverlay('overlay', 'library-overlay');
   playLogo();
   resetError();
-  fetchGall();
-  refs.pageList.innerHTML = '';
+  window.location.reload();
 }
 
 //меняем оверлей

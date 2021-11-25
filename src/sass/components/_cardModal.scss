@@ -6,25 +6,21 @@
   align-items: stretch !important;
 }
 
-.modal__close-btn {
-  position: absolute;
+.modal__close-icon {
+  // position: absolute;
   top: 12px;
   right: 15px;
-  color: black;
 }
 
-.modal__close-icon {
-  stroke: currentColor;
 
-  @media (min-width: 1024px) {
-    display: none;
-  }
+
+.modal__close-icon:hover {
+  fill: $hover-rating-color;
+
 }
-
 .modal-card {
   position: relative;
   display: flex;
-
   background-color: #ffffff;
   width: 280px;
   margin-top: 20px;
