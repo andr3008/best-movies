@@ -6,26 +6,22 @@ import Pagination from './pagination';
 const refs = getRefs();
 
 function templateCard(markup) {
-  cardContainer.innerHTML = cardTemp(markup);
+  refs.cardContainer.innerHTML = cardTemp(markup);
 }
 
-// function preLoader() {
-//   const loader = document.querySelector('.loader');
-//   loader.classList.remove('hide-loader');
-//     setTimeout(()=>loader.classList.add('hide-loader'), 1000)
-//   };
 
 const apiService = new fetchAPI();
 
 const pagination = new Pagination();
 
-const cardContainer = refs.cardContainer;
+
 pagination.init();
 
 refs.paginationList.addEventListener('click', onBtnClick);
 refs.prevBtn.addEventListener('click', onPrevBtnClick);
 refs.nextBtn.addEventListener('click', onNextBtnClick);
 refs.searchForm.addEventListener('submit', onSearch);
+
 
 function onSearch(e) {
   e.preventDefault();
@@ -64,11 +60,12 @@ function onBtnClick(evt) {
     return;
   }
 
-  cardContainer.innerHTML = '';
+  refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
 
   pagination.currentPage = Number(evt.target.textContent);
   apiService.pagination(pagination.currentPage);
+  
 
   if (apiService.query) {
     searchFetchMovie();
@@ -84,7 +81,7 @@ function onPrevBtnClick(evt) {
     pagination.currentPage -= 1;
   }
 
-  cardContainer.innerHTML = '';
+  refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
   apiService.pagination(pagination.currentPage);
 
@@ -102,7 +99,7 @@ function onNextBtnClick(evt) {
     pagination.currentPage += 1;
   }
 
-  cardContainer.innerHTML = '';
+  refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
   apiService.pagination(pagination.currentPage);
 
@@ -134,7 +131,6 @@ export function fetchGall() {
     })
     .then(templateCard)
     .catch(error => console.log(error));
-
 }
 
 
