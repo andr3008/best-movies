@@ -11,6 +11,4 @@ import './js/btnUp';
 // import './js/home';
 import './js/openMovieCard';
 import './js/renderLibrary';
-
-// import './js/firebase-config';
-// import './js/registration';
+import './js/registration';
