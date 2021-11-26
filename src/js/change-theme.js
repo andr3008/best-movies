@@ -1,10 +1,10 @@
-import getRefs from './getRefs';
+import getRefs from './get-refs';
 const refs = getRefs();
 refs.body.classList.add(localStorage.getItem('theme'));
 const Theme = {
-    LIGHT: 'light-theme',
-    DARK: 'dark-theme',
-  };
+  LIGHT: 'light-theme',
+  DARK: 'dark-theme',
+};
 if (localStorage.getItem('theme') === Theme.DARK) {
   refs.theme.checked = true;
 } else refs.body.setAttribute('class', 'light-theme');

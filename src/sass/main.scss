@@ -3,18 +3,16 @@
 @import './base/common';
 @import './base/container';
 @import './base/section';
+
 @import './components/_filter-section.scss';
 @import './components/theme';
 @import './components/collection';
 @import './components/dev-modal';
 @import './components/registration';
 @import './components/pagination';
-@import './components/btnUp';
-@import './components/cardModal';
+@import './components/btn-up';
+@import './components/card-modal';
 @import './components/loader';
-
 
 @import './layout/header';
 @import './layout/footer';
-
-

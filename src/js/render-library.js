@@ -1,6 +1,6 @@
-import getRefs from './getRefs';
-import NewApi from './fetchAPI';
-import cardTemp from '../templates/myLibTemp.hbs';
+import getRefs from './get-refs';
+import NewApi from './fetch-api';
+import cardTemp from '../templates/library-template.hbs';
 
 const newApi = new NewApi();
 const refs = getRefs();

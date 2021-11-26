@@ -1,4 +1,4 @@
-import getRefs from './getRefs';
+import getRefs from './get-refs';
 const refs = getRefs();
 import trottle from 'lodash.throttle';
 
