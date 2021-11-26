@@ -1,5 +1,5 @@
-import fetchAPI from './fetchAPI';
-import getRefs from './getRefs';
+import fetchAPI from './fetch-api';
+import getRefs from './get-refs';
 
 const apiService = new fetchAPI();
 const refs = getRefs();
@@ -7,13 +7,12 @@ const cardContainer = document.querySelector('.collection-list');
 
 export default class Pagination {
   constructor() {
-this.currentPage = 1;
-this.totalPages;
-this.pageRange = 2;
+    this.currentPage = 1;
+    this.totalPages;
+    this.pageRange = 2;
   }
 
-
-//  динамически рендерится список кнопок
+  //  динамически рендерится список кнопок
   renderPagesList() {
     const start = this.currentPage - this.pageRange;
     const end = this.currentPage + this.pageRange;
@@ -29,15 +28,19 @@ this.pageRange = 2;
   }
 
   //  скрывает и показывает первую и последнюю кнопки
- hideFirstLastBtn() {
+  hideFirstLastBtn() {
     this.currentPage < 4 ? (refs.firstPage.hidden = true) : (refs.firstPage.hidden = false);
-    this.currentPage > this.totalPages - 3 ? (refs.lastPage.hidden = true) : (refs.lastPage.hidden = false);
+    this.currentPage > this.totalPages - 3
+      ? (refs.lastPage.hidden = true)
+      : (refs.lastPage.hidden = false);
   }
 
   //  делает неактивными кнопки-стрелки
   checkBtnOpacity() {
     this.currentPage === 1 ? (refs.prevBtn.disabled = true) : (refs.prevBtn.disabled = false);
-    this.currentPage === this.totalPages ? (refs.nextBtn.disabled = true) : (refs.nextBtn.disabled = false);
+    this.currentPage === this.totalPages
+      ? (refs.nextBtn.disabled = true)
+      : (refs.nextBtn.disabled = false);
   }
 
   //  делает активную кнопку
@@ -59,6 +62,4 @@ this.pageRange = 2;
     this.renderPagesList();
     this.makeActiveBtn();
   }
-
 }
-

@@ -2,11 +2,10 @@ import { error } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 
-import fetchAPI from './fetchAPI';
-import getRefs from './getRefs';
-import cardTemp from '../templates/cardTemplate.hbs';
+import fetchAPI from './fetch-api';
+import getRefs from './get-refs';
+import cardTemp from '../templates/card-template.hbs';
 import Pagination from './pagination';
-
 
 export const refs = getRefs();
 
