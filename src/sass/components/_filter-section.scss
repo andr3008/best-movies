@@ -1,0 +1,35 @@
+.filter-section{
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 0;
+    @media screen and (min-width: 768px){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+}
+.filter-input {
+    border: 2px solid $hover-rating-color;
+    border-radius: 5px;
+    background-color: transparent;
+    color: $pagination-color;
+    text-transform: uppercase;
+
+    &:hover {
+        border: 2px solid transparent;
+        background: transparent;
+        color:$pagination-color;
+    }
+}
+.filter-text {
+    margin-bottom: 10px;
+    font-family: $mainFont;
+    font-weight: 500;
+    font-size: 20px;
+    color: $pagination-color;
+    @media screen and (min-width: 768px) {
+        font-size: 30px;   
+        margin-right: 20px;
+    }
+}
