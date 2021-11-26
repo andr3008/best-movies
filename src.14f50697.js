@@ -66,4 +66,4 @@ var t=arguments[3];Object.defineProperty(exports,"__esModule",{value:!0}),export
 },{"./getRefs":"qJUB","firebase/app":"OJEJ"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/changeTheme"),require("./js/fetchAPI"),require("./js/navigation"),require("./js/loader"),require("./js/logoAnime"),require("./js/dev-modal"),require("./js/pagination"),require("./js/btnUp"),require("./js/openMovieCard"),require("./js/renderLibrary"),require("./js/registration");
 },{"./sass/main.scss":"clu1","./js/changeTheme":"JW5E","./js/fetchAPI":"FrZ5","./js/navigation":"qr24","./js/loader":"vQE2","./js/logoAnime":"UOOW","./js/dev-modal":"Lv0L","./js/pagination":"o8lo","./js/btnUp":"zvDW","./js/openMovieCard":"AuYA","./js/renderLibrary":"saTP","./js/registration":"vz0I"}]},{},["Focm"], null)
-//# sourceMappingURL=/best-movies/src.a4600dfc.js.map
+//# sourceMappingURL=/best-movies/src.14f50697.js.map
