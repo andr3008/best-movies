@@ -2,7 +2,7 @@ import getRefs from './getRefs';
 const refs = getRefs();
 
 import playLogo from './logoAnime';
-
+import { fetchGall } from './home';
 import { resetError } from './home';
 
 refs.libraryBtn.addEventListener('click', onLibraryBtnOpen);
@@ -18,6 +18,7 @@ function onLibraryBtnOpen() {
 }
 
 function onHomeBtnOpen() {
+  fetchGall();
   changeWorkplace(refs.libraryContainer, refs.searchForm);
   changeBtnActive(refs.homeBtn, refs.libraryBtn);
   changeOverlay('overlay', 'library-overlay');
