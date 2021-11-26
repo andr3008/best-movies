@@ -23,7 +23,6 @@ function onHomeBtnOpen() {
   changeBtnActive(refs.homeBtn, refs.libraryBtn);
   changeOverlay('overlay', 'library-overlay');
   playLogo();
-  resetError();
   window.location.reload();
 }
 
