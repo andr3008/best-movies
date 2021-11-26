@@ -1,6 +1,6 @@
-import { error } from "@pnotify/core";
-import "@pnotify/core/dist/PNotify.css";
-import "@pnotify/core/dist/BrightTheme.css";
+import { error } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
 
 import fetchAPI from './fetchAPI';
 import getRefs from './getRefs';
@@ -45,7 +45,7 @@ function onError() {
 export default function resetError() {
   refs.searchIcon.classList.remove('hide');
   refs.error.classList.add('hide');
-  refs.input.placeholder = 'Поиск фильмов'; 
+  refs.input.placeholder = 'Поиск фильмов';
 }
 //чистим инпут после отработки запроса
 function resetForm() {
@@ -83,7 +83,6 @@ function onPrevBtnClick(evt) {
   refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
   apiService.pagination(pagination.currentPage);
-  
 
   if (apiService.query) {
     searchFetchMovie();
@@ -101,7 +100,7 @@ function onNextBtnClick(evt) {
   refs.cardContainer.innerHTML = '';
   refs.pageList.innerHTML = '';
   apiService.pagination(pagination.currentPage);
- 
+
   if (apiService.query) {
     searchFetchMovie();
   } else {
@@ -116,7 +115,7 @@ export function fetchGall() {
     .then(data => {
       if (data.page > 1) {
         resetError();
-      } 
+      }
       pagination.totalPages = data.total_pages;
       refs.lastBtn.textContent = pagination.totalPages;
       pagination.init();
@@ -137,13 +136,10 @@ export function fetchGall() {
       return errorMessage('Sorry, something is wrong here...');
     });
 
-
-   // .catch(console.log);
+  // .catch(console.log);
   //.finally(loader.stop);
 
-    // .catch(error => console.log(error));
-
-
+  // .catch(error => console.log(error));
 }
 
 apiService.pagination(pagination.currentPage);
@@ -183,14 +179,14 @@ function searchFetchMovie() {
 }
 
 function errorMessage(message) {
-    return error({
-      text: message,
-      delay: 2500,
-      closer: false,
-      title: 'Ooops!',
-      icon: false,
-      width: '250px',
-      sticker: false,
-      addClass: 'error-box',
-    });
+  return error({
+    text: message,
+    delay: 2500,
+    closer: false,
+    title: 'Ooops!',
+    icon: false,
+    width: '250px',
+    sticker: false,
+    addClass: 'error-box',
+  });
 }
