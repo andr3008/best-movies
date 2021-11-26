@@ -14,7 +14,6 @@ function onLibraryBtnOpen() {
   changeBtnActive(refs.libraryBtn, refs.homeBtn);
   changeOverlay('library-overlay', 'overlay');
   playLogo();
-  refs.error.classList.add('hide');
 }
 
 function onHomeBtnOpen() {
@@ -23,7 +22,6 @@ function onHomeBtnOpen() {
   changeBtnActive(refs.homeBtn, refs.libraryBtn);
   changeOverlay('overlay', 'library-overlay');
   playLogo();
-  resetError();
   window.location.reload();
 }
 

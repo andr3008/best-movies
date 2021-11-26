@@ -36,17 +36,29 @@ function onSearch(e) {
   searchFetchMovie();
 }
 
-function onError() {
-  refs.searchIcon.classList.add('hide');
-  refs.error.classList.remove('hide');
-  refs.input.placeholder = '';
+//для ошибки
+function errorSwitch(hide, show, placeholder) {
+  hide.classList.add('hide');
+  show.classList.remove('hide');
+  refs.input.placeholder = placeholder;
 }
 
-export default function resetError() {
-  refs.searchIcon.classList.remove('hide');
-  refs.error.classList.add('hide');
-  refs.input.placeholder = 'Поиск фильмов';
+const errorParts = {
+  show: function () {
+    errorSwitch(refs.searchIcon, refs.error, '');
+  },
+  hide: function () {
+    errorSwitch(refs.error, refs.searchIcon, 'Поиск фильмов');
+  },
+};
+
+function onError() {
+  errorParts.show();
+  setTimeout(() => {
+    errorParts.hide();
+  }, 1000);
 }
+
 //чистим инпут после отработки запроса
 function resetForm() {
   refs.input.value = '';
@@ -135,11 +147,6 @@ export function fetchGall() {
     .catch(error => {
       return errorMessage('Sorry, something is wrong here...');
     });
-
-  // .catch(console.log);
-  //.finally(loader.stop);
-
-  // .catch(error => console.log(error));
 }
 
 apiService.pagination(pagination.currentPage);
@@ -161,7 +168,6 @@ function searchFetchMovie() {
         onError();
         fetchGall();
       } else {
-        resetError();
         return apiService.fetchGenres().then(genresList => {
           return data.map(movie => ({
             ...movie,
@@ -172,9 +178,7 @@ function searchFetchMovie() {
       }
     })
     .then(templateCard)
-    .catch(error => {
-      return errorMessage('Sorry, something is wrong here...');
-    })
+    .catch(onError)
     .finally(resetForm);
 }
 
