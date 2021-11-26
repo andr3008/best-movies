@@ -6,7 +6,9 @@ document.body.onload = () => {
       loaderRef.classList.add('hide-loader');
     }
   }, 500);
+  
 };
+
 
 export const loader = {
   stop: function () {
@@ -19,3 +21,8 @@ export const loader = {
     loaderRef.classList.remove('hide-loader');
   },
 };
+
+ window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
