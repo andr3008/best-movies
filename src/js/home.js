@@ -1,3 +1,7 @@
+import { error } from "@pnotify/core";
+import "@pnotify/core/dist/PNotify.css";
+import "@pnotify/core/dist/BrightTheme.css";
+
 import fetchAPI from './fetchAPI';
 import getRefs from './getRefs';
 import cardTemp from '../templates/cardTemplate.hbs';
@@ -129,7 +133,9 @@ export function fetchGall() {
     })
     .then(templateCard)
 
-    .catch(error => console.log(error));
+    .catch(error => {
+      return errorMessage('Sorry, something is wrong here...');
+    });
 
 
    // .catch(console.log);
@@ -170,6 +176,21 @@ function searchFetchMovie() {
       }
     })
     .then(templateCard)
-    .catch(error => console.log(error))
+    .catch(error => {
+      return errorMessage('Sorry, something is wrong here...');
+    })
     .finally(resetForm);
+}
+
+function errorMessage(message) {
+    return error({
+      text: message,
+      delay: 2500,
+      closer: false,
+      title: 'Ooops!',
+      icon: false,
+      width: '250px',
+      sticker: false,
+      addClass: 'error-box',
+    });
 }
