@@ -31,6 +31,8 @@ export default function getRefs() {
     signUpNowBtn: document.querySelector('.signup-now__button'),
     signinSpinner: document.querySelector('.signin-spinner'),
     signUpSpinner: document.querySelector('.signup-spinner'),
+    
+    
 
     paginationContainer:document.querySelector('.pagination'),
     paginationList: document.querySelector('.pagination-mid'),
