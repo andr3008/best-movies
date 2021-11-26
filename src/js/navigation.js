@@ -3,7 +3,7 @@ const refs = getRefs();
 
 import playLogo from './logoAnime';
 import { fetchGall } from './home';
-import { resetError } from './home';
+
 
 refs.libraryBtn.addEventListener('click', onLibraryBtnOpen);
 refs.homeBtn.addEventListener('click', onHomeBtnOpen);

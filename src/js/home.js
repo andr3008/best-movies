@@ -7,15 +7,16 @@ import getRefs from './getRefs';
 import cardTemp from '../templates/cardTemplate.hbs';
 import Pagination from './pagination';
 
-const refs = getRefs();
 
-function templateCard(markup) {
+export const refs = getRefs();
+
+export function templateCard(markup) {
   refs.cardContainer.innerHTML = cardTemp(markup);
 }
 
-const apiService = new fetchAPI();
+export const apiService = new fetchAPI();
 
-const pagination = new Pagination();
+export const pagination = new Pagination();
 
 pagination.init();
 
@@ -52,7 +53,7 @@ const errorParts = {
   },
 };
 
-function onError() {
+export function onError() {
   errorParts.show();
   setTimeout(() => {
     errorParts.hide();
@@ -60,7 +61,7 @@ function onError() {
 }
 
 //чистим инпут после отработки запроса
-function resetForm() {
+export function resetForm() {
   refs.input.value = '';
 }
 
@@ -125,9 +126,6 @@ export function fetchGall() {
   apiService
     .fetch()
     .then(data => {
-      if (data.page > 1) {
-        resetError();
-      }
       pagination.totalPages = data.total_pages;
       refs.lastBtn.textContent = pagination.totalPages;
       pagination.init();
@@ -152,9 +150,7 @@ export function fetchGall() {
 apiService.pagination(pagination.currentPage);
 fetchGall();
 
-// // // обработка ответа API по поиску и отрисовка страницы
-
-function searchFetchMovie() {
+export function searchFetchMovie() {
   apiService
     .searchFetch()
     .then(data => {
