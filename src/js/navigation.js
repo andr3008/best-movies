@@ -14,7 +14,6 @@ function onLibraryBtnOpen() {
   changeBtnActive(refs.libraryBtn, refs.homeBtn);
   changeOverlay('library-overlay', 'overlay');
   playLogo();
-  refs.error.classList.add('hide');
 }
 
 function onHomeBtnOpen() {
