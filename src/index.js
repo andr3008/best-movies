@@ -11,3 +11,5 @@ import './js/btnUp';
 import './js/openMovieCard';
 import './js/renderLibrary';
 import './js/registration';
+
+

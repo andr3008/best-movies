@@ -26,13 +26,16 @@ export default function getRefs() {
     signInModal: document.querySelector('.backdrop[data-modal-signin]'),
     signUpBtn: document.querySelector('.user-box__signup'),
     signInBtn: document.querySelector('.user-box__signin'),
+    signIn: document.querySelector('.modal__button'),
     logOutBtn: document.querySelector('.logout-js'),
     signUpModal: document.querySelector('.backdrop[data-modal-signup]'),
     signUpNowBtn: document.querySelector('.signup-now__button'),
     signinSpinner: document.querySelector('.signin-spinner'),
     signUpSpinner: document.querySelector('.signup-spinner'),
-    
-    
+    googleBtn: document.querySelector('.google-signin'),
+    showPassBtn: document.querySelector('.show-pass'),
+    fieldPass: document.querySelector('.pass-js'),
+    signupWraper: document.querySelector('.signup-wpapper'),
 
     paginationContainer:document.querySelector('.pagination'),
     paginationList: document.querySelector('.pagination-mid'),
