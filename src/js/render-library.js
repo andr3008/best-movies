@@ -7,7 +7,7 @@ const refs = getRefs();
 
 
 class LibraryPaint {
-  constructor() { }
+  constructor() {}
 
   eventListeners = () => {
     refs.libraryBtn.addEventListener('click', this.renderLibrary);
@@ -27,6 +27,7 @@ class LibraryPaint {
     refs.queueBtn.classList.remove('library__btn--active');
     refs.paginationContainer.classList.add('hide');
 
+    
     if (localStorage.getItem('moviesWatched') === null) {
       refs.propos.innerHTML = `<h2 class ='hidden__title'> There are no films in the library </h2>`;
       refs.cardContainer.innerHTML = ''
@@ -36,9 +37,7 @@ class LibraryPaint {
     const movies = JSON.parse(localStorage.getItem('moviesWatched'));
     return Promise.all(movies.map(id => newApi.fetchOneMovieInfo(id))).then(this.cardRender);
   };
-
   
-
   renderQueueContainer = () => {
     refs.queueBtn.classList.add('library__btn--active');
     refs.watchedBtn.classList.remove('library__btn--active');
@@ -63,5 +62,6 @@ class LibraryPaint {
     this.eventListeners();
   };
 }
+
 const libraryPaint = new LibraryPaint();
 libraryPaint.init();
