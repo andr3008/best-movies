@@ -96,3 +96,9 @@
   border-radius: 5px;
   border: 1px solid #ff6b08;
 }
+
+.hidden__title {
+  font-family: $mainFont;
+  color: $alert-text-color;
+  text-align: center;
+}
