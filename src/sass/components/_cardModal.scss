@@ -7,68 +7,78 @@
 }
 
 .modal__close-icon {
-  // position: absolute;
   top: 12px;
   right: 15px;
 }
-
-
 
 .modal__close-icon:hover {
   fill: $hover-rating-color;
 
 }
+
 .modal-card {
   position: relative;
   display: flex;
-  background-color: #ffffff;
+  flex-wrap: wrap;
+  background-color: $modalCard-section-background-color;
   width: 280px;
+  height: auto;
   margin-top: 20px;
+  // margin-right: auto;
+  // margin-left: auto;
+  padding: 41px 20px 48px 20px;
+  transition: opacity 0.3s ease-in;
+
+  background-color: $modalCard-section-background-color;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
 
   @media screen and (min-width: 768px) {
-    background-color: #ffffff;
     width: 620px;
+    flex-wrap: nowrap;
 
     margin-top: 231px;
     padding: 30px 40px;
   }
 
   @media (min-width: 1024px) {
-    background-color: #ffffff;
     width: 882px;
+    height: 568px;
     margin-top: 100px;
     padding: 50px 30px 40px 30px;
   }
 }
 
 .modal__content {
-  position: relative;
-  display: flex;
+  // position: relative;
+  // display: flex;
 
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 
-  width: 280px;
-  height: auto;
-  margin-right: auto;
-  margin-left: auto;
+  // width: 280px;
+  // height: auto;
+  // margin-right: auto;
+  // margin-left: auto;
 
-  padding: 41px 20px 48px 20px;
-  transition: opacity 0.3s ease-in;
+  // padding: 41px 20px 48px 20px;
+  // transition: opacity 0.3s ease-in;
 
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
-  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+  // background-color: $modalCard-section-background-color;
+  // background-clip: padding-box;
+  // border: 1px solid rgba(0, 0, 0, 0.2);
+  // border-radius: 0.3rem;
+  // box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
 
-  @media (min-width: 768px) {
-    width: 620px;
-  }
+  // @media (min-width: 768px) {
+  //   width: 620px;
+  // }
 
-  @media (min-width: 1024px) {
-    width: 882px;
-    height: 568px;
-  }
+  // @media (min-width: 1024px) {
+  //   width: 882px;
+  //   height: 568px;
+  // }
 }
 
 .cardItem__image {
@@ -78,6 +88,7 @@
   @media screen and (min-width: 768px) {
     width: 264px;
     height: 373px;
+    margin-bottom: 0;
   }
 
   @media screen and (min-width: 1024px) {
@@ -91,14 +102,11 @@
   margin-right: auto;
   margin-left: auto;
   padding-top: 0;
-  width: 240px;
-  height: 357px;
+  width: auto;
+  height: 100%;
   border-radius: 5px;
 
-  @media screen and (min-width: 768px) {
-    width: auto;
-    height: 100%;
-  }
+  // @media screen and (min-width: 768px) {}
 }
 
 .cardItem__wrapper {
@@ -116,25 +124,21 @@
 }
 
 .cardItem__name {
-  font-family: 'Roboto';
   font-weight: 500;
   font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: 50;
-  color: #000000;
-
+  line-height: 23px;
+  color: $pagination-color;
   text-transform: uppercase;
 
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     font-size: 20px;
-    line-height: 1.15;
   }
 
   @media screen and (min-width: 1024px) {
     font-size: 30px;
-    line-height: 1.1666;
+    line-height: 35px;
   }
 }
 
@@ -152,15 +156,12 @@
   width: 69px;
   margin-right: 39px;
 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
-  line-height: 1.33;
+  line-height: 16px;
 
-  color: #8c8c8c;
+  color: $modalCard-second-text-color;
 
-  @media screen and (min-width: 768px) {}
+  // @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1024px) {
     margin-right: 80px;
@@ -169,13 +170,10 @@
 
 .cardItem__descr {
   width: 132px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
-  line-height: 1;
+  line-height: 16px;
 
-  color: #000000;
+  color: $modalCard-main-text-color;
 
   @media screen and (min-width: 768px) {
     width: 156px;
@@ -186,38 +184,30 @@
   }
 }
 
-// .cardItem__descr:nth-last-child(8) {
-//   margin-bottom: 10px;
-// }
-
 .cardItem__vote_average {
   display: inline-block;
   margin-right: 3px;
   padding: 1px 10px;
-  background: #ff6b01;
+  background: $hover-rating-color;
   border-radius: 5px;
 
-  font-family: Roboto;
-  font-weight: 500;
   font-size: 12px;
-  line-height: 1.166;
+  line-height: 14px;
 
-  color: #ffffff;
+  color: $title-color;
 }
 
 .cardItem__vote_count {
   display: inline-block;
   margin-right: 3px;
   padding: 1px 4px;
-  background: #f7f7f7;
+  background: $footer-background-color;
   border-radius: 5px;
 
-  font-family: Roboto;
-  font-weight: 500;
   font-size: 12px;
-  line-height: 1.1666;
+  line-height: 14px;
 
-  color: #000000;
+  color: $modalCard-main-text-color;
 }
 
 .cardItem__title_data {
@@ -229,15 +219,13 @@
   align-items: center;
   margin-bottom: 10px;
 
-  font-family: Roboto;
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 1.333;
+  line-height: 16px;
 
   text-transform: uppercase;
 
-  color: #000000;
+  color: $modalCard-main-text-color;
 }
 
 .trailer-btn {
@@ -249,18 +237,16 @@
   padding: 4px 5px;
   margin-left: 65px;
 
-  background: #ff6b01;
+  background: $hover-rating-color;
   border-radius: 5px;
-  border: 1px solid #ff6b01;
+  border: 1px solid $hover-rating-color;
   box-sizing: border-box;
   border-radius: 5px;
 
-  font-family: "Roboto";
-  font-weight: 500;
   font-size: 12px;
   line-height: initial;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $title-color;
 
   @media screen and (min-width: 768px) {
     margin-left: 65px;
@@ -273,6 +259,7 @@
 
 .play-icon {
   margin-right: 7px;
+  fill: $title-color;
 }
 
 .cardItem__description {
@@ -281,17 +268,12 @@
   height: auto;
   overflow: hidden;
 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
-  line-height: 1.666;
+  line-height: 20px;
 
-  color: #000000;
+  color: $modalCard-main-text-color;
 
-  @media screen and (min-width: 768px) {
-    height: auto;
-  }
+  // @media screen and (min-width: 768px) {}
 }
 
 .cardItem__listButton {
@@ -309,25 +291,21 @@
 .cardItem__button {
   display: block;
   align-items: center;
-  align-items: center;
   word-wrap: break-word;
   width: 113px;
   height: 44px;
   padding: 5px 14px;
 
-  background: #ffffff;
+  background: $title-color;
   border-radius: 5px;
-  border: 1px solid #000000;
+  border: 1px solid $modalCard-main-text-color;
   box-sizing: border-box;
   border-radius: 5px;
 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
-  line-height: 1.333;
+  line-height: 16px;
   text-transform: uppercase;
-  color: #000000;
+  color: $modalCard-main-text-color;
 
   @media screen and (min-width: 768px) {
     width: 125px;
@@ -345,7 +323,7 @@
 }
 
 .cardItem__button:hover {
-  background: #ff6b01;
-  color: #ffffff;
+  background: $hover-rating-color;
+  color: $title-color;
   border: 0;
 }
