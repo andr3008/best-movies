@@ -45,6 +45,12 @@ export default class NewApiService {
       }))
       .finally(loader.stop);
   }
+   fetchForGenre(genre) {
+    const url = `${BASE_URL}/discover/movie?with_genres=${genre}&sort_by=popularity.desc&api_key=${API_KEY}&page=${this._page}`;
+    return fetch(url)
+      .then(response => (response.ok ? response.json() : []))
+      .catch(error => console.log(error));
+  }
 
   get query() {
     return this.searchQuery;
