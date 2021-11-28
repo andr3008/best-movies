@@ -1,6 +1,8 @@
 export default function getRefs() {
   return {
     homeBtn: document.querySelector('.js-button__home'),
+    propos: document.querySelector('.propos'),
+    filter:document.querySelector('.filter-section'),
     libraryBtn: document.querySelector('.js-button__library'),
     libraryContainer: document.querySelector('.js-library'),
     watchedBtn: document.querySelector('.js-library__watched'),

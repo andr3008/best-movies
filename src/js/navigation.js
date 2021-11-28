@@ -1,9 +1,8 @@
-import getRefs from './getRefs';
+import getRefs from './get-refs';
 const refs = getRefs();
 
-import playLogo from './logoAnime';
+import playLogo from './logo-anime';
 import { fetchGall } from './home';
-
 
 refs.libraryBtn.addEventListener('click', onLibraryBtnOpen);
 refs.homeBtn.addEventListener('click', onHomeBtnOpen);

@@ -1,15 +1,15 @@
 import './sass/main.scss';
-import './js/changeTheme';
-import './js/fetchAPI';
+import './js/change-theme';
+import './js/fetch-api';
 import './js/navigation';
 import './js/loader';
-import './js/logoAnime';
+import './js/logo-anime';
 import './js/dev-modal';
 import './js/pagination';
-import './js/btnUp';
+import './js/btn-up';
 // import './js/home';
-import './js/openMovieCard';
-import './js/renderLibrary';
+import './js/open-moviecard';
+import './js/render-library';
 import './js/registration';
 
 
