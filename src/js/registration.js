@@ -196,12 +196,15 @@ function hideSignUpEsc(e) {
 // выйти с акаунтa
 function LogOutFilmoteka() {
   signOut(auth)
-  .then(() => { 
+    .then(() => {
+    // Sign-out successful.
     info({
       text: 'You have been logged out.',
       delay: 1000,
     })
-   })
+    }).catch((error) => {
+    // An error happened.
+  });
 }
 
 
