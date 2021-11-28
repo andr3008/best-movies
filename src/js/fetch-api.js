@@ -52,6 +52,21 @@ export default class NewApiService {
       .catch(error => console.log(error));
   }
 
+  fetchgetFilmTrailers(id) {
+    loader.start();
+    try {
+      const response = fetch(
+        `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
+      );
+     loader.stop();
+      const trailersdata = response.data.results;
+      const trailer = `https://www.youtube.com/embed/${trailersdata[0].key}`;
+      return trailer;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   get query() {
     return this.searchQuery;
   }
