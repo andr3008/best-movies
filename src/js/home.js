@@ -17,8 +17,6 @@ export const apiService = new fetchAPI();
 
 export const pagination = new Pagination();
 
-pagination.init();
-
 refs.paginationList.addEventListener('click', onBtnClick);
 refs.prevBtn.addEventListener('click', onPrevBtnClick);
 refs.nextBtn.addEventListener('click', onNextBtnClick);
@@ -125,6 +123,7 @@ export function fetchGall() {
   apiService
     .fetch()
     .then(data => {
+      apiService.resetPage();
       pagination.totalPages = data.total_pages;
       refs.lastBtn.textContent = pagination.totalPages;
       pagination.init();
