@@ -34,6 +34,15 @@ function openModal(e) {
 
     // Условие включения кнопок=>>
 
+    if (!moviesWatched.includes(idElem)) {
+      localStorage.removeItem('moviesWatched');
+    }
+
+    if (!movieQueue.includes(idElem)) {
+      localStorage.removeItem('movieQueue');
+    }
+
+
     if (moviesWatched.includes(idElem)) {
       modalAddWatched.classList.add('hide');
       modalDeleteWatched.classList.remove('hide');
