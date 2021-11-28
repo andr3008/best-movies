@@ -34,6 +34,14 @@ function openModal(e) {
 
     // Условие включения кнопок=>>
 
+    if (!moviesWatched.includes(idElem)) {
+      localStorage.removeItem('moviesWatched');
+    }
+
+    if (!movieQueue.includes(idElem)) {
+      localStorage.removeItem('movieQueue');
+    }
+
     if (moviesWatched.includes(idElem)) {
       modalAddWatched.classList.add('hide');
       modalDeleteWatched.classList.remove('hide');
@@ -100,12 +108,13 @@ function openModal(e) {
 
     function closeModalHandler(e) {
       if (e.code === 'Escape') {
-        modal.close();
-        window.removeEventListener('keydown', closeModalHandler);
+        removeListenerFromModalClose();
       }
     }
-
     function closeModal() {
+      removeListenerFromModalClose();
+    }
+    function removeListenerFromModalClose() {
       modal.close();
       window.removeEventListener('keydown', closeModalHandler);
     }
