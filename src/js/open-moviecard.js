@@ -42,7 +42,6 @@ function openModal(e) {
       localStorage.removeItem('movieQueue');
     }
 
-
     if (moviesWatched.includes(idElem)) {
       modalAddWatched.classList.add('hide');
       modalDeleteWatched.classList.remove('hide');
@@ -109,12 +108,13 @@ function openModal(e) {
 
     function closeModalHandler(e) {
       if (e.code === 'Escape') {
-        modal.close();
-        window.removeEventListener('keydown', closeModalHandler);
+        removeListenerFromModalClose();
       }
     }
-
     function closeModal() {
+      removeListenerFromModalClose();
+    }
+    function removeListenerFromModalClose() {
       modal.close();
       window.removeEventListener('keydown', closeModalHandler);
     }
