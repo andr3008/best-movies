@@ -46,5 +46,11 @@ export default function getRefs() {
     lastPage: document.querySelector('.last'),
     scrollToTopBtn: document.querySelector('.scrollToTopBtn'),
 
+    filterInput: document.querySelectorAll('.filter-input'),
+    genrePicker: document.querySelector('#genrepicker'),
+    filter: document.querySelector('.filter-section'),
+    searchInput: document.querySelector('.search__input'),
+    gallery: document.querySelector('.collection-list'),
+
   };
 }
