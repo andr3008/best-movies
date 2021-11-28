@@ -29,6 +29,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "basiclightbox": "^5.0.4",
     "fi": "0.0.5",
     "firebase": "^9.5.0",

@@ -1,7 +1,7 @@
 import modalFilmCard from '../templates/modalcard-template.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-
+import 'animate.css';
 import NewApiService from './fetch-api';
 const ApiInfo = new NewApiService();
 const cardFilm = document.querySelector('.js-card');
@@ -20,6 +20,8 @@ function openModal(e) {
     const modal = basicLightbox.create(markup);
     modal.show();
     // document.body.style.overflow = 'hidden';  // --------------отключение скролла (можно попробовать если дописать)
+    const element = document.querySelector('.modal-card');
+    element.classList.add('animate__animated', 'animate__zoomInUp');
 
     // Кнопки =>>
 
@@ -111,6 +113,7 @@ function openModal(e) {
         removeListenerFromModalClose();
       }
     }
+
     function closeModal() {
       removeListenerFromModalClose();
     }
