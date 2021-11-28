@@ -1,8 +1,8 @@
-import modalFilmCard from '../templates/modalCardTemp.hbs';
+import modalFilmCard from '../templates/modalcard-template.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
-import NewApiService from '../js/fetchAPI';
+import NewApiService from './fetch-api';
 const ApiInfo = new NewApiService();
 const cardFilm = document.querySelector('.js-card');
 
@@ -33,7 +33,7 @@ function openModal(e) {
     const idElem = modalImageRef.dataset.action;
 
     // Условие включения кнопок=>>
-    
+
     if (moviesWatched.includes(idElem)) {
       modalAddWatched.classList.add('hide');
       modalDeleteWatched.classList.remove('hide');
@@ -54,23 +54,22 @@ function openModal(e) {
 
     // Функции слушателей =>>
     function onClickToAddWathedMovie() {
-        if (moviesWatched.includes(idElem)) return;
+      if (moviesWatched.includes(idElem)) return;
 
-        modalAddWatched.classList.add('hide');
-        modalDeleteWatched.classList.remove('hide')
+      modalAddWatched.classList.add('hide');
+      modalDeleteWatched.classList.remove('hide');
 
-        moviesWatched.push(idElem);
-        localStorage.setItem('moviesWatched', JSON.stringify(moviesWatched));
-      }
-      
+      moviesWatched.push(idElem);
+      localStorage.setItem('moviesWatched', JSON.stringify(moviesWatched));
+    }
+
     function onClickToDeleteWathedMovie() {
-      modalDeleteWatched.classList.add('hide')
+      modalDeleteWatched.classList.add('hide');
       modalAddWatched.classList.remove('hide');
 
-        moviesWatched.splice(moviesWatched.indexOf(idElem), 1);
-        localStorage.removeItem('moviesWatched');
-        localStorage.setItem('moviesWatched', JSON.stringify(moviesWatched));
-      
+      moviesWatched.splice(moviesWatched.indexOf(idElem), 1);
+      localStorage.removeItem('moviesWatched');
+      localStorage.setItem('moviesWatched', JSON.stringify(moviesWatched));
     }
 
     function onClickToAddQueueMovie() {

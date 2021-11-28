@@ -2,20 +2,20 @@ import { error } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 
-import fetchAPI from './fetchAPI';
-import getRefs from './getRefs';
-import cardTemp from '../templates/cardTemplate.hbs';
+import fetchAPI from './fetch-api';
+import getRefs from './get-refs';
+import cardTemp from '../templates/card-template.hbs';
 import Pagination from './pagination';
 
-const refs = getRefs();
+export const refs = getRefs();
 
-function templateCard(markup) {
+export function templateCard(markup) {
   refs.cardContainer.innerHTML = cardTemp(markup);
 }
 
-const apiService = new fetchAPI();
+export const apiService = new fetchAPI();
 
-const pagination = new Pagination();
+export const pagination = new Pagination();
 
 pagination.init();
 
@@ -52,7 +52,7 @@ const errorParts = {
   },
 };
 
-function onError() {
+export function onError() {
   errorParts.show();
   setTimeout(() => {
     errorParts.hide();
@@ -60,7 +60,7 @@ function onError() {
 }
 
 //чистим инпут после отработки запроса
-function resetForm() {
+export function resetForm() {
   refs.input.value = '';
 }
 
@@ -125,9 +125,6 @@ export function fetchGall() {
   apiService
     .fetch()
     .then(data => {
-      if (data.page > 1) {
-        resetError();
-      }
       pagination.totalPages = data.total_pages;
       refs.lastBtn.textContent = pagination.totalPages;
       pagination.init();
@@ -152,9 +149,7 @@ export function fetchGall() {
 apiService.pagination(pagination.currentPage);
 fetchGall();
 
-// // // обработка ответа API по поиску и отрисовка страницы
-
-function searchFetchMovie() {
+export function searchFetchMovie() {
   apiService
     .searchFetch()
     .then(data => {
