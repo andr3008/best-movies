@@ -1,25 +1,23 @@
-.backdrop--is-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.backdrop {
-  background-color: rgba(105, 98, 98, 0.35);
+.modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  background-color: rgba(105, 98, 98, 0.35);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (max-width: 767px) {
     padding: 20px;
   }
+}
+
+.backdrop--is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .modal__container {
@@ -27,7 +25,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-height: 460px;
+  height: 510px;
   padding: 48px 20px 41px;
   margin: 0;
   background-color: $title-color;
@@ -59,6 +57,17 @@
   stroke: currentColor;
 }
 
+.modal__dev-heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .modal__dev-list {
   text-align: center;
 }
@@ -74,12 +83,13 @@
 }
 
 .modal__dev-link {
-  color: $pagination-color;
+  color: $accent-color;
   font-size: 13px;
   line-height: 1.33;
+  width: 100%;
   &:hover,
   &:focus {
-    color: $accent-color;
+    font-size: 15px;
   }
 }
 
@@ -92,7 +102,7 @@
 }
 
 .modal__dev-text {
-  color: $accent-color;
+  color: $pagination-color;
   font-size: 13px;
   line-height: 1.33;
 }
