@@ -10,13 +10,13 @@ const moviesWatched = [];
 const movieQueue = [];
 
 
- if (moviesWatched.length == 0) {
-      localStorage.removeItem('moviesWatched');
-    }
+//  if (moviesWatched.length === 0) {
+//       localStorage.removeItem('moviesWatched');
+//     }
 
-    if (movieQueue.length == 0) {
-      localStorage.removeItem('movieQueue');
-    }
+//     if (movieQueue.length === 0) {
+//       localStorage.removeItem('movieQueue');
+//     }
 
 cardFilm.addEventListener('click', openModal);
 
