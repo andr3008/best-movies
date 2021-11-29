@@ -1,7 +1,7 @@
 .scrollToTopBtn {
   position: fixed;
   bottom: 70px;
-  right: 30px;
+  right: calc((100% - 20px * 13) / 2);
 
   z-index: 10;
   opacity: 0;
@@ -18,6 +18,18 @@
   font-size: 24px;
   line-height: 48px;
   width: 48px;
+
+  @media screen and (min-width: 480px) {
+    right: calc((100% - 30px * 13) / 2);
+  }
+
+  @media screen and (min-width: 768px) {
+    right: calc((100% - 30px * 25) / 2);
+  }
+
+  @media screen and (min-width: 1024px) {
+    right: calc((100% - 33px * 30) / 2);
+  }
 }
 
 .scrollToTopBtn:hover {
@@ -35,20 +47,3 @@
   stroke: none;
   fill: currentColor;
 }
-
-
-// .modal__close-btn {
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   color: $pagination-color;
-
-//   &:focus,
-//   &:hover {
-//     color: $accent-color;
-//   }
-// }
-
-// .modal__close-icon {
-//   stroke: currentColor;
-// }
