@@ -17,6 +17,18 @@ export const apiService = new fetchAPI();
 
 export const pagination = new Pagination();
 
+function init(data) {
+  pagination.totalPages = data.total_pages;
+      refs.lastBtn.textContent = pagination.totalPages;
+      return pagination.init();
+}
+
+function btnPagination() {
+  refs.cardContainer.innerHTML = '';
+  refs.pageList.innerHTML = '';
+  apiService.pagination(pagination.currentPage);
+}
+
 refs.paginationList.addEventListener('click', onBtnClick);
 refs.prevBtn.addEventListener('click', onPrevBtnClick);
 refs.nextBtn.addEventListener('click', onNextBtnClick);
@@ -70,17 +82,21 @@ function onBtnClick(evt) {
     return;
   }
 
-  refs.cardContainer.innerHTML = '';
-  refs.pageList.innerHTML = '';
+ 
 
   pagination.currentPage = Number(evt.target.textContent);
-  apiService.pagination(pagination.currentPage);
+  btnPagination();
 
   if (apiService.query) {
     searchFetchMovie();
   } else {
     fetchGall();
   }
+}
+function btnPagination() {
+  refs.cardContainer.innerHTML = '';
+  refs.pageList.innerHTML = '';
+  apiService.pagination(pagination.currentPage);
 }
 //  изменение нумерации на 1 при клике на кнопку Prev
 function onPrevBtnClick(evt) {
@@ -89,10 +105,7 @@ function onPrevBtnClick(evt) {
   if (pagination.currentPage > 1) {
     pagination.currentPage -= 1;
   }
-
-  refs.cardContainer.innerHTML = '';
-  refs.pageList.innerHTML = '';
-  apiService.pagination(pagination.currentPage);
+  btnPagination();
 
   if (apiService.query) {
     searchFetchMovie();
@@ -107,9 +120,7 @@ function onNextBtnClick(evt) {
   if (pagination.currentPage !== pagination.totalPages) {
     pagination.currentPage += 1;
   }
-  refs.cardContainer.innerHTML = '';
-  refs.pageList.innerHTML = '';
-  apiService.pagination(pagination.currentPage);
+  btnPagination();
 
   if (apiService.query) {
     searchFetchMovie();
@@ -125,9 +136,7 @@ export function fetchGall() {
   apiService
     .fetch()
     .then(data => {
-      pagination.totalPages = data.total_pages;
-      refs.lastBtn.textContent = pagination.totalPages;
-      pagination.init();
+      init(data)
       return data.results;
     })
     .then(data => {
@@ -153,9 +162,7 @@ export function searchFetchMovie() {
   apiService
     .searchFetch()
     .then(data => {
-      pagination.totalPages = data.total_pages;
-      refs.lastBtn.textContent = pagination.totalPages;
-      pagination.init();
+      init(data)
       return data.results;
     })
     .then(data => {
