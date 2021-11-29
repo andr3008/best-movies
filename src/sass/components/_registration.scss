@@ -276,6 +276,9 @@
     background-color: $footer-background-color;
     transform: translate3d(100%, -100px, 0) rotate3d(0, 0, 1, 90deg);
   }
+  &:hover {
+    border-color: $hover-rating-color;
+  }
 }
 
 .google__icon {

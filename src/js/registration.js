@@ -43,7 +43,6 @@ function createNewUser(e) {
   e.preventDefault();
   let password = '';
   const email = e.target.email.value;
-  console.log(email, password);
   if (e.target.pass.value === e.target.secondpass.value) {
     password = e.target.pass.value;
   } else {
@@ -54,91 +53,34 @@ function createNewUser(e) {
     });
   }
   createUserWithEmailAndPassword(auth, email, password)
-    .then(userCredential => {
-      // Signed in
-      const user = userCredential.user;
-      success({
-        title: 'Success!',
-        text: 'Your account successfully created.',
-        delay: 1000,
-      });
-    })
-    .then(() => {
-      refs.signUpModal.classList.add('hide');
-      e.target.email.value = null;
-      e.target.pass.value = null;
-      e.target.secondpass.value = null;
-      window.location.reload();
-    })
-    .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      error({
-        title: 'Error',
-        text: errorMessage,
-        delay: 1000,
-      });
-    });
-}
-
-// получить текущего пользователя
-function getCurrentUser() {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      refs.signUpBtn.classList.add('hide');
-      refs.signInBtn.classList.add('hide');
-      refs.logOutBtn.classList.remove('hide');
-      success({
-        title: 'Success!',
-        text: 'You have successfully signed in.',
-        delay: 1000,
-      });
-      // ...
-    } else {
-      // User is signed out
-      refs.signUpBtn.classList.remove('hide');
-      refs.signInBtn.classList.remove('hide');
-      refs.logOutBtn.classList.add('hide');
-      
-    }
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
   });
 }
 
-
-// вход с паролем
-
-function signinEmailAndPassword(e) {
-  e.preventDefault();
-  const email = e.target.email.value;
-  const password = e.target.pass.value;
+// вход в систему
+function signinEmailAndPassword(email, password) {
   signInWithEmailAndPassword(auth, email, password)
-    .then(userCredential => {
-      // Signed in
-      const user = userCredential.user;
-      document.body.style.overflow = 'visible';
-      // ...
-    })
-    .then(() => {
-      refs.signInModal.classList.add('hide');
-      e.target.email.value = null;
-      e.target.pass.value = null;
-      window.location.reload(true);
-    })
-    .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      error({
-        title: 'Error',
-        text: errorMessage,
-        delay: 1000,
-      }).finally(() => {
-        refs.loginForm.classList.remove('hide');
-      });
-    });
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
 }
+
+// получить данные пользоваткля
 
 // вход Google
 
