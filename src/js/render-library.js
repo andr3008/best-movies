@@ -23,10 +23,7 @@ class LibraryPaint {
   }
 
   renderWatchedContainer = () => {
-    refs.watchedBtn.classList.add('library__btn--active');
-    refs.queueBtn.classList.remove('library__btn--active');
-    refs.paginationContainer.classList.add('hide');
-
+    this.btnActiv(refs.watchedBtn,refs.queueBtn);
     
     if (localStorage.getItem('moviesWatched') === null) {
       refs.propos.innerHTML = `<h2 class ='hidden__title'> There are no films in the library </h2>`;
@@ -39,9 +36,7 @@ class LibraryPaint {
   };
   
   renderQueueContainer = () => {
-    refs.queueBtn.classList.add('library__btn--active');
-    refs.watchedBtn.classList.remove('library__btn--active');
-    refs.paginationContainer.classList.add('hide');
+    this.btnActiv(refs.queueBtn, refs.watchedBtn);
 
     if (localStorage.getItem('movieQueue') === null) {
       refs.propos.innerHTML = `<h2 class ='hidden__title'> There are no films in the library </h2>`;
@@ -57,6 +52,12 @@ class LibraryPaint {
   cardRender = results => {
     refs.cardContainer.innerHTML = cardTemp(results);
   };
+
+  btnActiv = (active, hide) => {
+    active.classList.add('library__btn--active');
+    hide.classList.remove('library__btn--active');
+    refs.paginationContainer.classList.add('hide');
+  }
 
   init = () => {
     this.eventListeners();
