@@ -9,6 +9,15 @@ const cardFilm = document.querySelector('.js-card');
 const moviesWatched = [];
 const movieQueue = [];
 
+
+ if (moviesWatched.length == 0) {
+      localStorage.removeItem('moviesWatched');
+    }
+
+    if (movieQueue.length == 0) {
+      localStorage.removeItem('movieQueue');
+    }
+
 cardFilm.addEventListener('click', openModal);
 
 function openModal(e) {
@@ -19,7 +28,7 @@ function openModal(e) {
     const markup = modalFilmCard(data);
     const modal = basicLightbox.create(markup);
     modal.show();
-    // document.body.style.overflow = 'hidden';  // --------------отключение скролла (можно попробовать если дописать)
+
     const element = document.querySelector('.modal-card');
     element.classList.add('animate__animated', 'animate__zoomInUp');
 
@@ -36,22 +45,13 @@ function openModal(e) {
 
     // Условие включения кнопок=>>
 
-    if (!moviesWatched.includes(idElem)) {
-      localStorage.removeItem('moviesWatched');
-    }
-
-    if (!movieQueue.includes(idElem)) {
-      localStorage.removeItem('movieQueue');
-    }
-
+   
     if (moviesWatched.includes(idElem)) {
-      modalAddWatched.classList.add('hide');
-      modalDeleteWatched.classList.remove('hide');
+      hideBtn(modalAddWatched,modalDeleteWatched)
     }
 
     if (movieQueue.includes(idElem)) {
-      modalAddQueue.classList.add('hide');
-      modalDeleteQueue.classList.remove('hide');
+      hideBtn(modalAddQueue,modalDeleteQueue)
     }
     // Условие включения кнопок <<=
 
@@ -62,20 +62,23 @@ function openModal(e) {
     modalDeleteQueue.addEventListener('click', onClickToDeleteQueueMovie);
     // Слушатели <<=
 
+    function hideBtn(hide, show) {
+      hide.classList.add('hide');
+      show.classList.remove('hide')
+    }
+
+
     // Функции слушателей =>>
     function onClickToAddWathedMovie() {
       if (moviesWatched.includes(idElem)) return;
-
-      modalAddWatched.classList.add('hide');
-      modalDeleteWatched.classList.remove('hide');
+      hideBtn(modalAddWatched, modalDeleteWatched);
 
       moviesWatched.push(idElem);
       localStorage.setItem('moviesWatched', JSON.stringify(moviesWatched));
     }
 
     function onClickToDeleteWathedMovie() {
-      modalDeleteWatched.classList.add('hide');
-      modalAddWatched.classList.remove('hide');
+      hideBtn(modalDeleteWatched,modalAddWatched)
 
       moviesWatched.splice(moviesWatched.indexOf(idElem), 1);
       localStorage.removeItem('moviesWatched');
@@ -84,17 +87,14 @@ function openModal(e) {
 
     function onClickToAddQueueMovie() {
       if (movieQueue.includes(idElem)) return;
-
-      modalAddQueue.classList.add('hide');
-      modalDeleteQueue.classList.remove('hide');
+      hideBtn(modalAddQueue, modalDeleteQueue);
 
       movieQueue.push(idElem);
       localStorage.setItem('movieQueue', JSON.stringify(movieQueue));
     }
 
     function onClickToDeleteQueueMovie() {
-      modalDeleteQueue.classList.add('hide');
-      modalAddQueue.classList.remove('hide');
+      hideBtn(modalDeleteQueue, modalAddQueue);
 
       movieQueue.splice(movieQueue.indexOf(idElem), 1);
       localStorage.removeItem('movieQueue');
