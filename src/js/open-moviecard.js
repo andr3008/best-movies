@@ -30,7 +30,7 @@ function openModal(e) {
     modal.show();
 
     const element = document.querySelector('.modal-card');
-    element.classList.add('animate__animated', 'animate__zoomInUp');
+    element.classList.add('animate__animated', 'animate__zoomInDown');
 
     // Кнопки =>>
 
@@ -104,22 +104,32 @@ function openModal(e) {
     // Функции слушателей <<=
 
     //Function to close modalCard
+
     const closeBtn = document.querySelector('.js-modal__close-btn');
     closeBtn.addEventListener('click', closeModal);
+
     window.addEventListener('keydown', closeModalHandler);
+
+    const closeBackdrop = document.querySelector('.basicLightbox');
+    closeBackdrop.addEventListener('click', onBackdropClick);
 
     function closeModalHandler(e) {
       if (e.code === 'Escape') {
         removeListenerFromModalClose();
       }
     }
-
+    function onBackdropClick(e) {
+      if (e.currentTarget === e.target) {
+        removeListenerFromModalClose();
+      }
+    }
     function closeModal() {
       removeListenerFromModalClose();
     }
     function removeListenerFromModalClose() {
       modal.close();
       window.removeEventListener('keydown', closeModalHandler);
+      element.classList.add('animate__animated', 'animate__slideOutUp');
     }
   });
 }
