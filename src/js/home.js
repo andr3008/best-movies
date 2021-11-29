@@ -118,12 +118,13 @@ function onNextBtnClick(evt) {
   }
 }
 
+
+
 //  обработка ответа API по умолчанию(популярные фильмы) и отрисовка страницы
 export function fetchGall() {
   apiService
     .fetch()
     .then(data => {
-      apiService.resetPage();
       pagination.totalPages = data.total_pages;
       refs.lastBtn.textContent = pagination.totalPages;
       pagination.init();

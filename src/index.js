@@ -7,7 +7,7 @@ import './js/logo-anime';
 import './js/dev-modal';
 import './js/pagination';
 import './js/btn-up';
-// import './js/home';
+import './js/home';
 import './js/open-moviecard';
 import './js/render-library';
 import './js/registration';
