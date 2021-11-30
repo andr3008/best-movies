@@ -2,23 +2,15 @@ import modalFilmCard from '../templates/modalcard-template.hbs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import 'animate.css';
+
 import NewApiService from './fetch-api';
 const ApiInfo = new NewApiService();
+
 const cardFilm = document.querySelector('.js-card');
+cardFilm.addEventListener('click', openModal);
 
 const moviesWatched = [];
 const movieQueue = [];
-
-
-//  if (moviesWatched.length === 0) {
-//       localStorage.removeItem('moviesWatched');
-//     }
-
-//     if (movieQueue.length === 0) {
-//       localStorage.removeItem('movieQueue');
-//     }
-
-cardFilm.addEventListener('click', openModal);
 
 function openModal(e) {
   e.preventDefault();
@@ -45,13 +37,12 @@ function openModal(e) {
 
     // Условие включения кнопок=>>
 
-   
     if (moviesWatched.includes(idElem)) {
-      hideBtn(modalAddWatched,modalDeleteWatched)
+      hideBtn(modalAddWatched, modalDeleteWatched);
     }
 
     if (movieQueue.includes(idElem)) {
-      hideBtn(modalAddQueue,modalDeleteQueue)
+      hideBtn(modalAddQueue, modalDeleteQueue);
     }
     // Условие включения кнопок <<=
 
@@ -64,9 +55,8 @@ function openModal(e) {
 
     function hideBtn(hide, show) {
       hide.classList.add('hide');
-      show.classList.remove('hide')
+      show.classList.remove('hide');
     }
-
 
     // Функции слушателей =>>
     function onClickToAddWathedMovie() {
@@ -78,7 +68,7 @@ function openModal(e) {
     }
 
     function onClickToDeleteWathedMovie() {
-      hideBtn(modalDeleteWatched,modalAddWatched)
+      hideBtn(modalDeleteWatched, modalAddWatched);
 
       moviesWatched.splice(moviesWatched.indexOf(idElem), 1);
       localStorage.removeItem('moviesWatched');
