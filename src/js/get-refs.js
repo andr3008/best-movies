@@ -35,6 +35,7 @@ export default function getRefs() {
     googleBtn: document.querySelector('.google-signin'),
     showPassBtn: document.querySelector('.show-pass'),
     fieldPass: document.querySelector('.pass-js'),
+    signupWpapper:document.querySelector('.signup-wpapper'),
 
     paginationContainer:document.querySelector('.pagination'),
     paginationList: document.querySelector('.pagination-mid'),
