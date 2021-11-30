@@ -45,28 +45,35 @@ export default class NewApiService {
       }))
       .finally(loader.stop);
   }
-   fetchForGenre(genre) {
+  fetchForGenre(genre) {
     const url = `${BASE_URL}/discover/movie?with_genres=${genre}&sort_by=popularity.desc&api_key=${API_KEY}&page=${this._page}`;
     return fetch(url)
       .then(response => (response.ok ? response.json() : []))
       .catch(error => console.log(error));
   }
 
+  // fetchgetFilmTrailers(id) {
+  //   loader.start();
+  //   try {
+  //     const response = fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
+  //     loader.stop();
+  //     const trailersdata = response.data.results;
+  //     const trailer = `https://www.youtube.com/embed/${trailersdata[0].key}`;
+  //     return trailer;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
   fetchgetFilmTrailers(id) {
     loader.start();
-    try {
-      const response = fetch(
-        `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
-      );
-     loader.stop();
-      const trailersdata = response.data.results;
-      const trailer = `https://www.youtube.com/embed/${trailersdata[0].key}`;
-      return trailer;
-    } catch (error) {
-      console.log(error);
-    }
+    return fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
+      .then(response => response.json())
+      .then(data => ({
+        ...data,
+        results: data.results,
+      }))
+      .finally(loader.stop);
   }
-
   get query() {
     return this.searchQuery;
   }
