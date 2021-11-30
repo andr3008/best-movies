@@ -19,8 +19,8 @@ export const pagination = new Pagination();
 
 function init(data) {
   pagination.totalPages = data.total_pages;
-      refs.lastBtn.textContent = pagination.totalPages;
-      return pagination.init();
+  refs.lastBtn.textContent = pagination.totalPages;
+  return pagination.init();
 }
 
 function btnPagination() {
@@ -66,7 +66,7 @@ export function onError() {
   errorParts.show();
   setTimeout(() => {
     errorParts.hide();
-  }, 1000);
+  }, 3000);
 }
 
 //чистим инпут после отработки запроса
@@ -81,8 +81,6 @@ function onBtnClick(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
     return;
   }
-
- 
 
   pagination.currentPage = Number(evt.target.textContent);
   btnPagination();
@@ -129,14 +127,12 @@ function onNextBtnClick(evt) {
   }
 }
 
-
-
 //  обработка ответа API по умолчанию(популярные фильмы) и отрисовка страницы
 export function fetchGall() {
   apiService
     .fetch()
     .then(data => {
-      init(data)
+      init(data);
       return data.results;
     })
     .then(data => {
@@ -162,14 +158,16 @@ export function searchFetchMovie() {
   apiService
     .searchFetch()
     .then(data => {
-      init(data)
+      init(data);
       return data.results;
     })
     .then(data => {
       if (data.length === 0) {
         onError();
         fetchGall();
+        refs.filter.classList.remove('hide');
       } else {
+        refs.filter.classList.add('hide');
         return apiService.fetchGenres().then(genresList => {
           return data.map(movie => ({
             ...movie,
