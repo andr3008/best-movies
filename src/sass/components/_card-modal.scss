@@ -13,7 +13,6 @@
 
 .modal__close-icon:hover {
   fill: $hover-rating-color;
-
 }
 
 .modal-card {
@@ -24,8 +23,7 @@
   width: 280px;
   height: auto;
   margin-top: 20px;
-  // margin-right: auto;
-  // margin-left: auto;
+
   padding: 41px 20px 48px 20px;
   transition: opacity 0.3s ease-in;
 
@@ -49,36 +47,6 @@
     margin-top: 100px;
     padding: 50px 30px 40px 30px;
   }
-}
-
-.modal__content {
-  // position: relative;
-  // display: flex;
-
-  // flex-wrap: wrap;
-
-  // width: 280px;
-  // height: auto;
-  // margin-right: auto;
-  // margin-left: auto;
-
-  // padding: 41px 20px 48px 20px;
-  // transition: opacity 0.3s ease-in;
-
-  // background-color: $modalCard-section-background-color;
-  // background-clip: padding-box;
-  // border: 1px solid rgba(0, 0, 0, 0.2);
-  // border-radius: 0.3rem;
-  // box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
-
-  // @media (min-width: 768px) {
-  //   width: 620px;
-  // }
-
-  // @media (min-width: 1024px) {
-  //   width: 882px;
-  //   height: 568px;
-  // }
 }
 
 .cardItem__image {
@@ -105,8 +73,6 @@
   width: auto;
   height: 100%;
   border-radius: 5px;
-
-  // @media screen and (min-width: 768px) {}
 }
 
 .cardItem__wrapper {
@@ -161,10 +127,9 @@
 
   color: $modalCard-second-text-color;
 
-  // @media screen and (min-width: 768px) {}
-
   @media screen and (min-width: 1024px) {
     margin-right: 80px;
+    padding-bottom: 10px;
   }
 }
 
@@ -272,8 +237,6 @@
   line-height: 20px;
 
   color: $modalCard-main-text-color;
-
-  // @media screen and (min-width: 768px) {}
 }
 
 .cardItem__listButton {
