@@ -33,7 +33,7 @@ refs.signUpBtn.addEventListener('click', openSignUpModal);
 refs.signInBtn.addEventListener('click', openSignInModal);
 refs.logOutBtn.addEventListener('click', LogOutFilmoteka);
 refs.signUpNowBtn.addEventListener('click', signUpNow);
-refs.loginForm.addEventListener('submit', signinEmailAndPassword);
+refs.loginForm.addEventListener('sumbit', signinEmailAndPassword);
 refs.googleBtn.addEventListener('click', signInGoogleAcount);
 refs.registerForm.addEventListener('sumbit', createNewUser);
 refs.showPassBtn.addEventListener('click', showPass);
@@ -49,39 +49,92 @@ function createNewUser(e) {
     error({
       title: 'Error',
       text: 'Passwords did not match',
-      delay: 1000,
+      delay: 2000,
     });
   }
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
-    // ...
+    document.body.style.overflow = 'visible';
+    document.querySelector('.signup-wpapper').classList.remove('load');
+    success({
+      title: 'Success!',
+      text: 'Your account successfully created.',
+      delay: 1000,
+    });
+  })
+  .then(() => {
+    refs.signUpModal.classList.add('hide');
+    e.target.email.value = null;
+    e.target.pass.value = null;
+    e.target.secondpass.value = null;
   })
   .catch((error) => {
+    refs.signupWpapper.classList.remove('load');
     const errorCode = error.code;
     const errorMessage = error.message;
-    // ..
+    error({
+      title: 'Error',
+      text: errorMessage,
+      delay: 2000,
+    });
   });
 }
 
 // вход в систему
-function signinEmailAndPassword(email, password) {
+function signinEmailAndPassword(e) {
+  e.preventDefault();
+  const email = e.target.email.value;
+  const password = e.target.pass.value;
   signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    // ...
+    document.body.style.overflow = 'visible';
+    refs.signupWpapper.classList.remove('load');
+  })
+  .then(() => {
+    refs.signInModal.classList.add('hide');
+    e.target.email.value = null;
+    e.target.pass.value = null;
+    window.location.reload(true);
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    error({
+      title: 'Error',
+      text: errorMessage,
+      delay: 2000,
+    });
+    refs.signupWpapper.classList.remove('load');
+  })
+  .finally(() => {
+    refs.loginForm.classList.remove('hide');
   });
 }
 
 // получить данные пользоваткля
-
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    refs.signUpBtn.classList.add('hide');
+    refs.signInBtn.classList.add('hide');
+    refs.logOutBtn.classList.remove('hide');
+    
+    const uid = user.uid;
+    success({
+      title: 'Success!',
+      text: 'You have successfully signed in.',
+      delay: 1000,
+    });
+  } else {
+    // User is signed out
+    refs.signUpBtn.classList.remove('hide');
+    refs.signInBtn.classList.remove('hide');
+    refs.logOutBtn.classList.add('hide');
+  }
+});
 // вход Google
 
 function signInGoogleAcount() {
