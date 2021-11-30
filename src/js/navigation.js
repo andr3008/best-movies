@@ -39,9 +39,3 @@ function changeActiveElement(ref1, ref2, style) {
   ref1.classList.add(style);
   ref2.classList.remove(style);
 }
-
-function resetPagination() {
-  refs.paginationContainer.classList.remove('hide');
-  refs.pageList.innerHTML = '';
-  apiServise.pagination(apiServise.resetPage());
-}

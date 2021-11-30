@@ -1,14 +1,15 @@
 <header class="header">
-  <section class="section js-header overlay">
+
+  <div class="section js-header overlay">
+
 
     <div class="container">
-
       <div class="toolbar">
         <div class="theme-switch">
           <svg class="theme-switch__icon" role="img" aria-label="Иконка солнца">
             <use href="./images/symbol-defs.svg#sun"></use>
           </svg>
-    
+
           <div class="theme-switch__control">
             <input
               class="theme-switch__toggle"
@@ -17,15 +18,11 @@
               id="theme-switch-toggle"
               aria-label="Переключить между тёмной и светлой темой"
             />
-            <label
-              aria-hidden="true"
-              class="theme-switch__track"
-              for="theme-switch-toggle"
-            >
+            <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
             </label>
             <div aria-hidden="true" class="theme-switch__marker"></div>
           </div>
-    
+
           <svg class="theme-switch__icon" aria-label="Иконка луны">
             <use href="./images/symbol-defs.svg#moon"></use>
           </svg>
@@ -33,10 +30,12 @@
       </div>
 
       <nav class="navigation">
-        <div class="navigation__logo" href="">
+        <div class="navigation__logo">
           <span>
+
           <object id="logo" type="image/svg+xml" data="/images/film.svg"></object>
-          </span><h1 class="navigation__title">Filmoteka</h1>
+          </span><h2 class="navigation__title">Filmoteka</h2>
+
         </div>
         <div class="navigation__list">
           <button class="button navigation__button navigation__button--active js-button__home">
@@ -54,7 +53,7 @@
         <label>
           <input type="text" class="search__input" name="query" placeholder="Поиск фильмов" />
         </label>
-        <button type="button submit" class="search__btn js-search__button">
+        <button type="submit" class="search__btn js-search__button">
           <svg class="search__svg">
             <use href="/images/symbol-defs.svg#icon-search"></use>
           </svg>
@@ -65,12 +64,11 @@
         Search result not successful. Enter the correct movie name and
       </p>
       <div class="library js-library hide">
-        <button type="button" class="library__btn  js-library__watched">
-          Watched
-        </button>
+        <button type="button" class="library__btn js-library__watched">Watched</button>
         <button type="button" class="library__btn js-library__queue">queue</button>
       </div>
     </div>
-   
-  </section>
+
+  </в>
+
 </header>
