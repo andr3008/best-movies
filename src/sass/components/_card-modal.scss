@@ -23,6 +23,7 @@
   width: 280px;
   height: auto;
   margin-top: 20px;
+
   padding: 41px 20px 48px 20px;
   transition: opacity 0.3s ease-in;
 
@@ -128,6 +129,7 @@
 
   @media screen and (min-width: 1024px) {
     margin-right: 80px;
+    padding-bottom: 10px;
   }
 }
 
