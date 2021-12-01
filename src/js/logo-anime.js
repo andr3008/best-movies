@@ -1,7 +1,7 @@
 import Vivus from 'vivus';
 const logoIcon = new Vivus('logo', {
   type: 'oneByOne',
-  duration: 100,
+  duration: 200,
 });
 
 function playLogo() {
