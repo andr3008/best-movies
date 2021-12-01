@@ -7,7 +7,7 @@ const refs = getRefs();
 
 
 class LibraryPaint {
-  constructor() {}
+  constructor() { }
 
   eventListeners = () => {
     refs.libraryBtn.addEventListener('click', this.renderLibrary);
@@ -23,29 +23,30 @@ class LibraryPaint {
   }
 
   renderWatchedContainer = () => {
-    this.btnActiv(refs.watchedBtn,refs.queueBtn);
+    this.btnActiv(refs.watchedBtn, refs.queueBtn);
+    const movies = JSON.parse(localStorage.getItem('moviesWatched'));
     
-    if (localStorage.getItem('moviesWatched') === null) {
+    if (localStorage.getItem('moviesWatched') === null || movies.length < 1) {
       refs.propos.innerHTML = `<h2 class ='hidden__title'> There are no films in the library </h2>`;
       refs.cardContainer.innerHTML = ''
       return
     }
     refs.propos.innerHTML = '';
-    const movies = JSON.parse(localStorage.getItem('moviesWatched'));
+   
     return Promise.all(movies.map(id => newApi.fetchOneMovieInfo(id))).then(this.cardRender);
   };
   
   renderQueueContainer = () => {
     this.btnActiv(refs.queueBtn, refs.watchedBtn);
+    const movies = JSON.parse(localStorage.getItem('movieQueue'));
 
-    if (localStorage.getItem('movieQueue') === null) {
+    if (localStorage.getItem('movieQueue') === null || movies.length < 1) {
       refs.propos.innerHTML = `<h2 class ='hidden__title'> There are no films in the library </h2>`;
       refs.cardContainer.innerHTML = ''
       return
     }
 
     refs.propos.innerHTML = '';
-    const movies = JSON.parse(localStorage.getItem('movieQueue'));
     return Promise.all(movies.map(id => newApi.fetchOneMovieInfo(id))).then(this.cardRender);
   };
 
