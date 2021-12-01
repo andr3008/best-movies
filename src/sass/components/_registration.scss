@@ -118,6 +118,7 @@
   display: flex;
   align-items: baseline;
   float: right;
+  padding-top: 15px;
 }
 .user-box__signup,
 .user-box__signin {
@@ -147,14 +148,13 @@
     background-color: $hover-rating-color;
   }
   &:hover::before {
-    background-color:$footer-background-color;
+    background-color: $footer-background-color;
     transform: translate3d(100%, -60px, 0) rotate3d(0, 0, 1, 90deg);
   }
-      
 }
 
 .user-box__signup {
-  margin-right: 30px;
+  margin-right: 38px;
 }
 .site-nav__signup {
   position: relative;
@@ -324,7 +324,7 @@
   right: 50px;
   &::after {
     position: absolute;
-    content: "";
+    content: '';
     width: 22px;
     height: 2px;
     top: 7px;
@@ -334,4 +334,3 @@
     transition: 3s cubic-bezier();
   }
 }
-
