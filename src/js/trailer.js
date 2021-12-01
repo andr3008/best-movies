@@ -12,7 +12,7 @@ function openTrailer(e) {
   e.preventDefault();
   if (e.target.nodeName !== 'BUTTON') return;
   ApiTrailer.fetchgetFilmTrailers(e.target.dataset.id).then(data => {
-    const id = data.results[0].key;
+    const id = data.results;
     const instance = basicLightbox.create(`
   <iframe src='https://www.youtube.com/embed/${id}'></iframe>
 `);
