@@ -11,9 +11,5 @@ import './js/home';
 import './js/open-moviecard';
 import './js/render-library';
 import './js/registration';
-
+import './js/trailer';
 import './js/find-for-genre';
-
-
-
-
