@@ -78,4 +78,4 @@ var t=arguments[3];Object.defineProperty(exports,"__esModule",{value:!0}),export
 },{"./fetch-api":"ye0o","../templates/card-template.hbs":"EWp5","./pagination":"o8lo","./get-refs":"EGsz"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/change-theme"),require("./js/fetch-api"),require("./js/navigation"),require("./js/loader"),require("./js/logo-anime"),require("./js/dev-modal"),require("./js/pagination"),require("./js/btn-up"),require("./js/home"),require("./js/open-moviecard"),require("./js/render-library"),require("./js/registration"),require("./js/trailer"),require("./js/find-for-genre");
 },{"./sass/main.scss":"clu1","./js/change-theme":"yj0S","./js/fetch-api":"ye0o","./js/navigation":"qr24","./js/loader":"vQE2","./js/logo-anime":"HDPc","./js/dev-modal":"Lv0L","./js/pagination":"o8lo","./js/btn-up":"mWWP","./js/home":"nqs3","./js/open-moviecard":"bLF2","./js/render-library":"bled","./js/registration":"vz0I","./js/trailer":"J7DG","./js/find-for-genre":"kV5E"}]},{},["Focm"], null)
-//# sourceMappingURL=/best-movies/src.6ef66c43.js.map
+//# sourceMappingURL=/best-movies/src.f86dc6d7.js.map
